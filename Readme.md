@@ -1,0 +1,1 @@
+This Reposatory contains the exercises and projects that i stumbled upon in The Odin Project.
