@@ -1,0 +1,6 @@
+scissors.png:
+<a href="https://www.flaticon.com/free-icons/scissor" title="scissor icons">Scissor icons created by Freepik - Flaticon</a>
+paper.png:
+<a href="https://www.flaticon.com/free-icons/history" title="history icons">History icons created by Freepik - Flaticon</a>
+stone.png
+<a href="https://www.flaticon.com/free-icons/stone" title="stone icons">Stone icons created by Agung Rama - Flaticon</a>
