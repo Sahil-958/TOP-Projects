@@ -5,9 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Rock Paper Scissors</h1>
-    <p>Checkout the console to play the game. Ui for this will be Designed later. Till then Stay Tuned.</p>
+<body class="body">
+    <nav class="navbar">
+        <h1>Rock Paper Scissors</h1>
+    </nav>
+    <header class="header">
+        <div class="score">
+            <h2>Scores:</h2>
+            <div class="players">
+                <div class="user">
+                    <img src="nerd.png" alt="">
+                    <p>You:</p>
+                </div>
+                <div class="computer">
+                    <img src="code.png" alt="">
+                    <p>computer:</p>
+                </div>
+            </div>
+            <p class="reason">Winning Text will be displayed here</p>
+        </div>
+        <div class="gifdiv"><img src="rps.gif" alt="" class="gif"></div>
+    </header>
+    <section class="mainsection">
+        <h2>Make Your Choice</h2>
+        <div class="btncontainer">
+            <button class="btn"><img src="rock.png" alt=""><p>Rock</p></button>
+            <button class="btn"><img src="paper.png" alt=""><p>Paper</p></button>
+            <button class="btn"><img src="scissors.png" alt=""><p>Scissors</p></button>
+        </div>
+    </section>
+    <footer class="footer"><p>Made With <span class="heart">❤️</span> By SAWHILL</p></footer>
 </body>
 </html>
