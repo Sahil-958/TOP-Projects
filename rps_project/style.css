@@ -86,7 +86,7 @@
 
 .computer,
 .user {
-    max-width: 100px;
+    max-width: 130px;
     min-width: 80px;
     min-height: 50px;
     margin: 10px;
@@ -156,6 +156,12 @@
     transform: translateY(1px);
 }
 
+.disabled,.disabled:hover,.disabled:active{
+    background-color: var(--Surface2);
+    cursor: not-allowed;
+    box-shadow: none;
+    border-color: var(--SurfaceO);
+}
 .btn img {
     width: 100%;
 }
