@@ -30,8 +30,12 @@
     --Mantle: #181825;
     --Crust: #11111b;
 }
-
+@font-face {
+    font-family: Galiver;
+    src: url(fonts/Galiver-Sans.ttf);
+}
 .body {
+    font-family: Galiver;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -136,6 +140,7 @@
     max-width: 150px;
     color: var(--Text);
     font-size: 18px;
+    font-family: Galiver;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
