@@ -89,7 +89,7 @@
     max-width: 100px;
     min-width: 80px;
     min-height: 50px;
-    /* margin: 10px; */
+    margin: 10px;
 }
 
 .players img {
@@ -98,11 +98,11 @@
 }
 
 .reason {
-    margin: 25px 0px;
-    padding: 0px 10px;
+    padding: 20px 10px;
     font-size: 22px;
     font-weight: bold;
     color: var(--Pink);
+    width: 25vw;
 }
 
 .mainsection {
