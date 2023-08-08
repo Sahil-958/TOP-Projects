@@ -69,13 +69,10 @@
     border-radius: 50%;
 }
 
-
-.score h2 {
-    font-size: 28px;
-    color: var(--Text);
-    margin: 10px;
-    /* display: inline; */
-
+@media (max-width: 800px) {
+    .gifdiv{
+        display: none;
+    }
 }
 
 .players {
@@ -106,7 +103,8 @@
     font-size: 22px;
     font-weight: bold;
     color: var(--Pink);
-    width: 25vw;
+    width: 450px;
+    text-align: center;
 }
 
 .mainsection {
