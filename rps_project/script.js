@@ -73,15 +73,17 @@ function play(playerSelection, computerSelection) {
 function restartGame(){
     roundCount=0;
     if(userScore<computerScore){
-            para.textContent="Beaten By a Peice of Code 💀";
+            para.textContent="YOU LOSE! The computer's 'randomness' reigns supreme. Truly awe-inspiring.";
     }else if(userScore>computerScore){
-            para.textContent="Annd You are worrying About AI taking over your Job";
+            para.textContent="YOU WIN! Human intellect outwits 'random' calculations. A legendary feat.";
     }else {
-            para.textContent="TIE! Let's Play a TIE-BREAKER";
+            para.textContent="A TIE? Destiny flips a coin, unsure whether to applaud your brilliance or the computer's 'random' charm.";
     }
     userScore=computerScore=0;
     setTimeout(() => {
         window.alert('Round Ended!');
+        user.textContent = `You: ${userScore}`;
+        computer.textContent = `Computer: ${computerScore}`;
     }, 1000);
 }
 
