@@ -30,8 +30,8 @@ function play(playerSelection, computerSelection) {
     if ((playerSelection != ROCK) && (playerSelection != SCISSORS) && (playerSelection != PAPER)) {
         para.textContent = `BAD Input: Only Rock Paper Scissors | Case insensitive are allowed`;
     }
-    computerSelection = computerSelection.toLowerCase();
-    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toUpperCase();
+    playerSelection = playerSelection.toUpperCase();
     if (computerSelection === playerSelection) {
         setTimeout(() => {
             para.textContent = "Its a TIE!";
