@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-E-Sketcher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header"><h1>Etch-E-Sketcher</h1></header>
+    <section class="mainsec">
+        <div class="settings">
+            <div class="mode-color">
+                <label for="fg-color-picker">Foreground Color: </label>
+                <input type="color" name="fg-color-picker" id="fg-picker" value="#9aa5ce">
+            </div>
+            <div class="mode-color">
+                <label for="bg-color-picker">Background Color: </label>
+                <input type="color" name="bg-color-picker" id="bg-picker" value="#414868">
+            </div>
+            <p>Draw Mode</p>
+            <div class="mode">
+                <button class="btn selected" id="click">Click</button>
+                <button class="btn" id="hover">Hover</button>
+            </div>
+            <p>Shading Mode</p>
+            <div class="mode">
+                <button class="btn" id="lighten">Lighten</button>
+                <button class="btn" id="darken">Darken</button>
+            </div>
+            <p>Color Mode</p>
+            <div class="mode">
+                <button class="btn" id="random">Random</button>
+                <button class="btn selected" id="manual">Manual</button>
+            </div>
+            <p>Grid Lines</p>
+            <div class="mode">
+                <button class="btn selected" id="grid-show">Show</button>
+                <button class="btn" id="grid-hide">Hide</button>
+            </div>
+            <p>Color Picker</p>
+            <div class="mode">
+                <button class="btn" id="color-picker-fg">Foreground</button>
+                <button class="btn" id="color-picker-bg">Background</button>
+            </div>
+            <p>Correction Tools</p>
+            <div class="mode">
+                <button class="btn" id="eraser">Eraser</button>
+                <button class="btn" id="clear-all">Clear All</button>
+            </div>
+            <p>Grid Size</p>
+            <div class="sliderContainer">
+                <input type="range" class="slider" id="slider" min="0" max="100" value="50">
+                <p id="slider-value">50x50</p>
+            </div>
+        </div>
+        <div class="sketchBoard"></div>
+    </section>
+    <footer class="footer"><p>Made With <span class="heart">❤️</span> By SAWHILL</p></footer>
+</body>
+</html>
