@@ -1,0 +1,158 @@
+:root {
+  --redish-pink: #f7768e;
+  --orangeish: #fF9e64;
+  --light-orange: #e0af68;
+  --pale-green: #9ece6a;
+  --light-cyan: #73daca;
+  --pale-turquoise: #b4f9f8;
+  --bright-cyan: #2ac3de;
+  --teal: #7dcfff;
+  --soft-blue: #7aa2f7;
+  --lavender: #bb9af7;
+  --light-lavender: #c0caf5;
+  --light-lilac: #a9b1d6;
+  --pale-blue: #9aa5ce;
+  --light-gray: #cfc9c2;
+  --steel-blue: #565f89;
+  --dark-steel-blue: #414868;
+  --midnight-blue: #24283b;
+  --deep-charcoal: #1a1b26;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--light-lilac);
+  height: 100vh;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--midnight-blue);
+}
+
+.header{
+  font-size: 28px;
+  padding: 15px 0px;
+  text-align: center;
+  color: var(--pale-blue);
+  background-color: var(--deep-charcoal);
+}
+
+.mainsec{
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+}
+
+
+.settings{
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid var(--pale-blue);
+  justify-content: space-evenly;
+}
+
+.settings p{
+  text-align: center;
+}
+
+
+.btn{
+  font-size: 16px;
+  padding: 4px;
+  width: 48%;
+  color: var(--deep-charcoal);
+  background-color: var(--pale-blue);
+  border: 1px solid var(--soft-blue);
+  border-radius: 6%;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: var(--Lavender);
+  background-color: var(--dark-steel-blue);
+  color: var(--Mauve);
+  box-shadow: 0px 0px 18px var(--Mauve);
+}
+
+.btn:active {
+  border-color: var(--dark-steel-blue);
+  background-color: var(--deep-charcoal);
+  color: var(--Text);
+}
+
+.selected{
+  background-color: var(--midnight-blue);
+  color: var(--light-lilac);
+  border-color: var(--steel-blue);
+}
+
+.mode{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.slider{
+  background-color: var(--midnight-blue);
+  border-radius: 300px;
+  width: 100%;
+}
+
+.slider::-webkit-slider-thumb,
+.slider::-moz-range-thumb {
+    background-color: var(--steel-blue); /* Change to desired knob color */
+    width: 15px;
+    height: 15px;
+    border: 3px solid var(--midnight-blue); /* Add border for knob */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-runnable-track,
+.slider::-moz-range-track{
+        background-color: var(--light-lavender);
+        height: 4px; 
+        border-radius: 5px; 
+}
+.sliderContainer p{
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--light-lavender);
+}
+.sketchBoard{
+  margin: 10px;
+  min-width: 75vh;
+  min-height: 75vh;
+  background-color: var(--deep-charcoal);
+}
+
+.footer{
+  padding: 10px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--pale-blue);
+  background-color: var(--deep-charcoal);
+}
+
+
+@media (max-width:1000px) {
+  .mainsec{
+    flex-direction: column-reverse;
+  }
+  .sketchBoard{
+    margin: 10px;
+    width: 90vw;
+    height: 90vw;
+    background-color: var(--deep-charcoal);
+  }
+}
