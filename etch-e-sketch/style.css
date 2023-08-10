@@ -69,9 +69,9 @@ body {
   font-size: 16px;
   padding: 4px;
   width: 48%;
-  color: var(--deep-charcoal);
-  background-color: var(--pale-blue);
-  border: 1px solid var(--soft-blue);
+  background-color: var(--midnight-blue);
+  color: var(--light-lilac);
+  border: 1px solid var(--steel-blue);
   border-radius: 6%;
   cursor: pointer;
 }
@@ -84,9 +84,9 @@ body {
 }
 
 .selected{
-  background-color: var(--midnight-blue);
-  color: var(--light-lilac);
-  border-color: var(--steel-blue);
+  color: var(--deep-charcoal);
+  background-color: var(--pale-blue);
+  border: 1px solid var(--soft-blue);
 }
 
 .mode{
