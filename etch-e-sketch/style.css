@@ -137,6 +137,12 @@ body {
   flex-wrap: wrap;
 }
 
+.sketchBoard div{
+  box-sizing: border-box;
+  border: 1px solid var(--dark-steel-blue);
+  background-color: var(--light-lilac);
+}
+
 .footer{
   padding: 10px 0px;
   font-size: 20px;
