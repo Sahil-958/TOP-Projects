@@ -133,6 +133,8 @@ body {
   width: 75vh;
   height: 75vh;
   background-color: var(--deep-charcoal);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .footer{
