@@ -130,8 +130,8 @@ body {
 }
 .sketchBoard{
   margin: 10px;
-  min-width: 75vh;
-  min-height: 75vh;
+  width: 75vh;
+  height: 75vh;
   background-color: var(--deep-charcoal);
 }
 
