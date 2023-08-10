@@ -76,12 +76,6 @@ body {
   cursor: pointer;
 }
 
-.btn:hover {
-  border-color: var(--Lavender);
-  background-color: var(--dark-steel-blue);
-  color: var(--Mauve);
-  box-shadow: 0px 0px 18px var(--Mauve);
-}
 
 .btn:active {
   border-color: var(--dark-steel-blue);
