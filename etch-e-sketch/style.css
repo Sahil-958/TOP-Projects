@@ -133,8 +133,11 @@ body {
 
 .sketchBoard div{
   box-sizing: border-box;
-  border: 1px solid var(--dark-steel-blue);
   background-color: var(--light-lilac);
+}
+
+.grid-line div{
+  border: 1px solid var(--dark-steel-blue);
 }
 
 .footer{
