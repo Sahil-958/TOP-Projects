@@ -255,10 +255,7 @@ function createGrid() {
 }
 
 function clearGrid() {
-    const childDiv = sketchBoard.querySelectorAll('div');
-    childDiv.forEach(pixel => {
-        pixel.style.backgroundColor = backgroundColor;
-    });
+    createGrid();
     isEraserActive=false;
     brushColor=foregroundColor;
 }
