@@ -78,20 +78,6 @@ buttonContainer.addEventListener('click', event => {
 });
 
 function DrawMode() {
-
-    sketchBoard.addEventListener("mousedown", (e) => {
-        isMouseDown = true;
-        draw(e);
-    });
-    document.addEventListener("dragstart", event => {
-        event.preventDefault();
-    });
-    sketchBoard.addEventListener("contextmenu", event => {
-        event.preventDefault();
-    });
-    window.addEventListener("mouseup", () => {
-        isMouseDown = false;
-    });
     const pixels=sketchBoard.querySelectorAll('div');
     pixels.forEach(pixel=>{
         pixel.addEventListener('mouseenter',(e)=>draw(e));
@@ -233,7 +219,19 @@ function onJsLoaded() {
     createGrid(gridSize);
     toggleGridLines();
     DrawMode();
-
+    sketchBoard.addEventListener("mousedown", (e) => {
+        isMouseDown = true;
+        draw(e);
+    });
+    document.addEventListener("dragstart", event => {
+        event.preventDefault();
+    });
+    sketchBoard.addEventListener("contextmenu", event => {
+        event.preventDefault();
+    });
+    window.addEventListener("mouseup", () => {
+        isMouseDown = false;
+    });
 }
 
 function onSliderEvent() {
@@ -253,6 +251,7 @@ function createGrid() {
         divn.style.height = `calc(100%/${gridSize})`;
         sketchBoard.appendChild(divn);
     }
+    DrawMode();
 }
 
 function clearGrid() {
