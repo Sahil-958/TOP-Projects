@@ -5,7 +5,7 @@ const sketchBoard = document.querySelector('.sketchBoard');
 const fgPicker = document.querySelector('#fg-picker');
 const bgPicker = document.querySelector('#bg-picker');
 const buttonContainer = document.querySelector('.settings');
-var drawMode = 'mousemove';
+var drawMode = 'click';
 var shadowMode = '';
 var isShadowActive = false;
 var intialShade = '';
@@ -55,7 +55,7 @@ buttonContainer.addEventListener('click', event => {
         }
     }
     const clickedButtonId = clickedButton.id;
-    if (clickedButtonId === 'mousemove' || clickedButtonId === 'mouseover') {
+    if (clickedButtonId === 'click' || clickedButtonId === 'hover') {
         drawMode = clickedButtonId;
         DrawMode();
     } else if (clickedButtonId === "lighten" || clickedButtonId === 'darken') {
@@ -92,7 +92,10 @@ function DrawMode() {
     window.addEventListener("mouseup", () => {
         isMouseDown = false;
     });
-    sketchBoard.addEventListener(`${drawMode}`, (e) => draw(e));
+    const pixels=sketchBoard.querySelectorAll('div');
+    pixels.forEach(pixel=>{
+        pixel.addEventListener('mouseenter',(e)=>draw(e));
+    });
 }
 
 function toggleGridLines() {
@@ -106,7 +109,7 @@ function toggleGridLines() {
 function draw(event) {
     console.log('d');
     const clickedPixel = event.target;
-    if ((drawMode === 'mouseover' && !isMouseDown && !isColorPickerActive) || (drawMode === 'mousemove' && isMouseDown && !isColorPickerActive)) {
+    if ((drawMode === 'hover' && !isMouseDown && !isColorPickerActive) || (drawMode === 'click' && isMouseDown && !isColorPickerActive)) {
         if (colorMode === 'manual' && !isShadowActive) {
             clickedPixel.style.backgroundColor = brushColor;
         } else if (colorMode === 'random' && !isShadowActive) {
