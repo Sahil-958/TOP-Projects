@@ -19,12 +19,18 @@
   --deep-charcoal: #1a1b26;
 }
 
+@font-face {
+  font-family: transformer;
+  src: url(fonts/transformer.ttf);
+}
+
 * {
   padding: 0;
   margin: 0;
 }
 
 body {
+  font-family: transformer;
   color: var(--light-lilac);
   height: 100vh;
   min-width: 350px;
@@ -66,8 +72,9 @@ body {
 
 
 .btn{
+  font-family: inherit;
   font-size: 16px;
-  padding: 4px;
+  padding: 8px 0px;
   width: 48%;
   background-color: var(--midnight-blue);
   color: var(--light-lilac);
@@ -89,7 +96,7 @@ body {
   border: 1px solid var(--soft-blue);
 }
 
-.mode{
+.mode,.mode-color{
   display: flex;
   justify-content: space-between;
   margin: 10px;
