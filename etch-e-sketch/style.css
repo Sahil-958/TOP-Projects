@@ -99,14 +99,11 @@ body {
 
 .mode,.mode-color{
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin: 10px 0;
 }
 
-.mode-color{
-  height: 50px;
-  align-items: center;
-}
 
 .mode-color label{
   margin-right: 10px;
