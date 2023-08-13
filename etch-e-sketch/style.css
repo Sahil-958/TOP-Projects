@@ -99,7 +99,12 @@ body {
 .mode,.mode-color{
   display: flex;
   justify-content: space-between;
-  margin: 10px;
+  margin: 10px 0;
+}
+
+.mode-color{
+  height: 50px;
+  align-items: center;
 }
 
 .slider{
