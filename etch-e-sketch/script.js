@@ -257,8 +257,10 @@ function createGrid() {
 function clearGrid() {
     const childDiv = sketchBoard.querySelectorAll('div');
     childDiv.forEach(pixel => {
-        pixel.style.backgroundColor = 'var(--light-lilac)';
-    })
+        pixel.style.backgroundColor = backgroundColor;
+    });
+    isEraserActive=false;
+    brushColor=foregroundColor;
 }
 
 
