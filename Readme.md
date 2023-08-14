@@ -10,7 +10,7 @@ Explore the following projects with their live demos:
 
 Create a visually appealing landing page.
 
-[Live Demo](https://name.github.io/The-Odin-Project-Learnings/landing_page_project/)
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/landing_page_project/)
 
 ![Rock Paper Scissors](assets/landing.png)
 
@@ -18,7 +18,7 @@ Create a visually appealing landing page.
 
 Test your luck against the computer in this classic game.
 
-[Live Demo](https://name.github.io/The-Odin-Project-Learnings/rps_project/)
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/rps_project/)
 
 ![Rock Paper Scissors](assets/rps.png)
 
@@ -26,6 +26,6 @@ Test your luck against the computer in this classic game.
 
 Get creative and draw your own pixel art.
 
-[Live Demo](https://name.github.io/The-Odin-Project-Learnings/etch-e-sketch/)
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/etch-e-sketch/)
 
 ![Etch-E-Sketch](assets/etch-e-sketch.png)
