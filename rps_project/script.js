@@ -12,7 +12,7 @@ user.textContent = `You: ${userScore}`;
 const computer = document.querySelector("#computer");
 computer.textContent = `Computer: ${computerScore}`;
 const para = document.querySelector(".reason");
-para.textContent = "Welcome to Rock Paper Scissors\nTo Start the game make you choice";
+para.textContent = "Welcome to Rock Paper Scissors\nTo Start the game make your choice";
 const buttons = document.querySelectorAll(".btn");
 
 buttons.forEach(button => {
