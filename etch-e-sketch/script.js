@@ -24,8 +24,7 @@ slider.addEventListener('input', () => onSliderEvent());
 clearBtn.addEventListener('click', () => clearGrid());
 fgPicker.addEventListener('change', e => changeFgColor(e));
 bgPicker.addEventListener('change', e => changeBgColor(e));
-
-onJsLoaded();
+document.addEventListener("DOMContentLoaded",onJsLoaded());
 
 
 buttonContainer.addEventListener('click', event => {
