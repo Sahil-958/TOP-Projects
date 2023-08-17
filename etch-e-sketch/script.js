@@ -56,7 +56,6 @@ buttonContainer.addEventListener('click', event => {
     const clickedButtonId = clickedButton.id;
     if (clickedButtonId === 'click' || clickedButtonId === 'hover') {
         drawMode = clickedButtonId;
-        DrawMode();
     } else if (clickedButtonId === "lighten" || clickedButtonId === 'darken') {
         shadowMode = clickedButtonId;
         isShadowActive = clickedButton.classList.contains('selected');
