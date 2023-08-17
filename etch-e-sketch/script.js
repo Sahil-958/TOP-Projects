@@ -216,7 +216,6 @@ function rgbToHex(rgb) {
 function onJsLoaded() {
     createGrid(gridSize);
     toggleGridLines();
-    DrawMode();
     sketchBoard.addEventListener("mousedown", (e) => {
         isMouseDown = true;
         draw(e);
