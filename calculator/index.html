@@ -13,12 +13,33 @@
         <h1>Calcy</h1>
     </header>
     <section class="main">
-        <div class="display">
-            <div class="main-display">
-                <div class="calculations"></div>
+        <div class="calBody">
+            <div class="calContainer">
+                <div class="calculations"><p></p></div>
             </div>
-            <div class="secondary-display">
-                <div class="keys"></div>
+            <div class="keysContainer">
+                <div class="keys">
+                    <button class="btn" id="7" onclick="takeOperand('7')">7</button>
+                    <button class="btn" id="8" onclick="takeOperand('8')">8</button>
+                    <button class="btn" id="9" onclick="takeOperand('9')">9</button>
+                    <button class="btn operator" id="/" onclick="takeOperator('/')">/</button>
+                    <button class="btn" id="4" onclick="takeOperand('4')">4</button>
+                    <button class="btn" id="5" onclick="takeOperand('5')">5</button>
+                    <button class="btn" id="6" onclick="takeOperand('6')">6</button>
+                    <button class="btn operator" id="*" onclick="takeOperator('*')">*</button>
+                    <button class="btn" id="1" onclick="takeOperand('1')">1</button>
+                    <button class="btn" id="2" onclick="takeOperand('2')">2</button>
+                    <button class="btn" id="3" onclick="takeOperand('3')">3</button>
+                    <button class="btn operator" id="-" onclick="takeOperator('-')">-</button>
+                    <button class="btn operator" id="." onclick="takeOperator('.')">.</button>
+                    <button class="btn" id="0" onclick="takeOperand('0')">0</button>
+                    <button class="btn operator" id="+" onclick="takeOperator('+')">+</button>
+                    <button class="btn operator" id="^" onclick="handlePowerExpression()">x<sup>Y</sup></button>
+                    <button class="btn operator" id="r" onclick="calculateSquareRoot()">√</button>
+                    <button class="btn operator" id="Backspace"  onclick="deleteChar()">⌫</button>
+                    <button class="btn operator" id="Delete"  onclick="clearDisplay()">AC</button>
+                    <button class="btn operator"  id="Enter" onclick="sanityCheckAndRun()">=</button>
+                </div>
             </div>
         </div>
             <div class="history">
