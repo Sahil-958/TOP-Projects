@@ -172,6 +172,7 @@ h6 {
 
 .history {
     flex: 1;
+    max-width: 300px;
     width: 30vw;
     border: 2px solid var(--nord-blue-0);
     background-color: var(--nord-polar-night-2);
@@ -300,6 +301,7 @@ h6 {
     }
 
     .history {
+        max-width: 100%;
         width: 100%;
         height: 25vh;
     }
