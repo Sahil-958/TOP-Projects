@@ -35,7 +35,7 @@ Get creative and draw your own pixel art.
 
 Explore my custom-built calculator project with a sleek Nord-themed design. This calculator is fully functional with hardware keyboard support and offers a compact layout for a seamless user experience.
 
-[Live Demo] (https://sahil-958.github.io/The-Odin-Project-Learnings/calculator)
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/calculator)
 
 | ![Calcy Desktop](assets/calcyDesktop.png) | ![Calcy](assets/calcy.png) |
 |:---------------------------------------:|:--------------------------:|
