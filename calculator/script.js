@@ -28,7 +28,7 @@ function visualizeUiClick(e, isActive) {
 
 
 function keyPressHandler(e) {
-    console.log(`OP1.l:${operand1.length}|OP2.l:${operand2.length}|OPT.l:${operator.length}`);
+    // console.log(`OP1.l:${operand1.length}|OP2.l:${operand2.length}|OPT.l:${operator.length}`);
     visualizeUiClick(e, false);
     if (e.key.match(/[0-9.]+/)) {
         takeOperand(e.key);
@@ -55,7 +55,7 @@ function appendToDisplay(arg) {
 }
 
 function clearDisplay() {
-    console.log("CLRDISP");
+    // console.log("CLRDISP");
     operand1 = operand2 = operator = previousResult = '';
     updateDisplay();
 }
@@ -83,7 +83,7 @@ function operation(isCalRoot=false, isCalPower=false) {
     let result = '';
     const para = document.createElement('p');
     try {
-        console.log(`Eval:${operand1}${operator}${operand2}`);
+        // console.log(`Eval:${operand1}${operator}${operand2}`);
         if(isCalRoot){
             result=Math.sqrt(operand1);
         }else if(isCalPower){
@@ -91,7 +91,7 @@ function operation(isCalRoot=false, isCalPower=false) {
         }else{
             result = eval(`${operand1}${operator}${operand2}`);
         }
-        console.log(`res:${result}`);
+        // console.log(`res:${result}`);
         if(typeof result==='number'){
             result = parseFloat(result.toFixed(3));
         }
@@ -106,17 +106,18 @@ function operation(isCalRoot=false, isCalPower=false) {
         historyInfo.appendChild(para);
         operand1= previousResult = result.toString();
         mainDisplay.textContent = result;
-        operand2 = '';
-        operator = result = '';
+        operand2=operator = result = '';
     } catch (error) {
-        console.table(error);
+        // console.table(error);
+        para.textContent="Something Bad Happend!";
+        historyInfo.appendChild(para);
     }
 }
 
 function takeOperand(arg) {
     operator.length === 0 ? operand1 += arg : operand2 += arg;
-    console.log(`opr1:${operand1}`);
-    console.log(`opr2:${operand2}`);
+    // console.log(`opr1:${operand1}`);
+    // console.log(`opr2:${operand2}`);
     updateDisplay();
 }
 
@@ -124,14 +125,14 @@ function takeOperator(arg) {
     if (operator.length === 0) {
         operator += arg;
     }
-    console.log(`opt:${operator}`);
+    // console.log(`opt:${operator}`);
     updateDisplay();
 }
 
 function updateDisplay() {
     // console.log(`OPP1.l:${operand1.length}|OPP2.l:${operand2.length}|OPT.l:${operator.length}`);
     // console.log(`OPP1.l:${operand1}|OPP2.l:${operand2.length}|OPT.l:${operator.length}`);
-    console.log("UPDISP");
+    // console.log("UPDISP");
     displayBuffer = `${operand1}${operator}${operand2}`;
     mainDisplay.textContent = displayBuffer;
 }
@@ -150,7 +151,7 @@ function handlePowerExpression(){
 
 function sanityCheckAndRun() {
     if ((operand1.length > 0) && (operand2.length > 0) && (operator.length > 0)) {
-        console.log('CALLING:OPERATION');
+        // console.log('CALLING:OPERATION');
         operator.includes('^')?operation(false,true):operation();
         updateDisplay();
     } 
