@@ -30,7 +30,7 @@ function visualizeUiClick(e, isActive) {
 function keyPressHandler(e) {
     console.log(`OP1.l:${operand1.length}|OP2.l:${operand2.length}|OPT.l:${operator.length}`);
     visualizeUiClick(e, false);
-    if (e.key.match(/[0-9]+/)) {
+    if (e.key.match(/[0-9.]+/)) {
         takeOperand(e.key);
         updateDisplay();
     } else if (e.key.match(/[*+-/^]+/)) {
