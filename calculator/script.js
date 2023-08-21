@@ -130,7 +130,7 @@ function takeOperand(arg) {
 }
 
 function takeOperator(arg) {
-    if (operator.length === 0) {
+    if (operator.length === 0 && operand1.length>0) {
         operator += arg;
     }
     // console.log(`opt:${operator}`);
@@ -153,8 +153,10 @@ function calculateSquareRoot(){
 }
 
 function handlePowerExpression(){
-    operator='^';
-    updateDisplay();
+    if(operand1.length>0){
+        operator='^';
+        updateDisplay();
+    }
 }
 
 function sanityCheckAndRun() {
