@@ -45,6 +45,8 @@ function keyPressHandler(e) {
         clearDisplay();
     }else if(e.key==="r"){
         calculateSquareRoot();
+    }else if(e.key==="Escape"){
+        historyInfo.innerHTML='';
     }
     // console.log(e.key);
 }
