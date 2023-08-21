@@ -257,6 +257,12 @@ h6 {
     background-color: var(--nord-red-1);
 }
 
+#clearHistory{
+    align-self: center;
+    width: 90%;
+    height: 30px;
+}
+
 .info {
     font-family: PcapTerminal;
     background-color: var(--nord-polar-night-0);
