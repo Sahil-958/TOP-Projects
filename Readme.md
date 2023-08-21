@@ -29,3 +29,14 @@ Get creative and draw your own pixel art.
 [Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/etch-e-sketch/)
 
 ![Etch-E-Sketch](assets/etch-e-sketch.png)
+
+
+## Calcy
+
+Explore my custom-built calculator project with a sleek Nord-themed design. This calculator is fully functional with hardware keyboard support and offers a compact layout for a seamless user experience.
+
+[Live Demo] (https://sahil-958.github.io/The-Odin-Project-Learnings/calculator)
+
+| ![Calcy Desktop](assets/calcyDesktop.png) | ![Calcy](assets/calcy.png) |
+|:---------------------------------------:|:--------------------------:|
+|               Calcy Desktop              |           Calcy            |
