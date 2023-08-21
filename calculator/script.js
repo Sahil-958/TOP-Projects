@@ -115,7 +115,13 @@ function operation(isCalRoot=false, isCalPower=false) {
 }
 
 function takeOperand(arg) {
-    operator.length === 0 ? operand1 += arg : operand2 += arg;
+    if(operator.length===0){
+        if(operand1.includes('.') && (arg==='.')){return;}
+        operand1 += arg;
+    }else{
+        if(operand2.includes('.') && (arg==='.')){return;}
+        operand2 += arg;
+    }
     // console.log(`opr1:${operand1}`);
     // console.log(`opr2:${operand2}`);
     updateDisplay();
