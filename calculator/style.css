@@ -105,7 +105,7 @@ h6 {
     padding: 10px;
     gap: 10px;
     width: 100vw;
-    max-width: 900px;
+    max-width: 1200px;
     min-width: 450px;
     align-self: center;
 }
@@ -117,6 +117,7 @@ h6 {
 .calBody {
     flex: 2;
     min-width: 400px;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -172,8 +173,8 @@ h6 {
 
 .history {
     flex: 1;
-    max-width: 300px;
-    width: 30vw;
+    max-width: 380px;
+    width: 35vw;
     border: 2px solid var(--nord-blue-0);
     background-color: var(--nord-polar-night-2);
     text-align: center;
@@ -305,7 +306,9 @@ h6 {
     .main {
         flex-direction: column;
     }
-
+    .calBody{
+        max-width: 100%;
+    }
     .history {
         max-width: 100%;
         width: 100%;
