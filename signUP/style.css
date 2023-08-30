@@ -78,8 +78,18 @@ body {
   justify-content: center;
 }
 
-.logo img {
+.logo img{
   height: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover{
+  transform: rotate(-360deg) scale(1.2);
+}
+
+.logo a{
+  height: 60%;
 }
 
 .credits {
