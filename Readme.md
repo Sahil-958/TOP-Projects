@@ -40,3 +40,25 @@ Explore my custom-built calculator project with a sleek Nord-themed design. This
 | ![Calcy Desktop](assets/calcyDesktop.png) | ![Calcy](assets/calcy.png) |
 |:---------------------------------------:|:--------------------------:|
 |               Calcy Desktop              |           Calcy            |
+
+
+## SignUP 4 Fun
+
+Welcome to SignUp 4 Fun! This project presents a delightful and light-hearted signup form that adds a touch of humor to the mundane process of creating an account.
+
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/signUP)
+
+![signUP 4 Fun](assets/signUP.png)
+
+## Appreciation
+
+I want to express my sincere appreciation to the fantastic artists who have generously indirectly contributed by letting me use their art at no cost.
+
+- The background design by [WANEELLA](https://www.waneella.com/) has lent a wonderful atmosphere to the project (signUP 4 Fun).
+- I've gained inspiration and invaluable knowledge from [The Odin Project](https://www.theodinproject.com/).
+
+I also want to acknowledge the talented artists who have contributed to previous projects. Although I don't have specific links to their work due to a belated addition of this section, their creative input has been invaluable and greatly appreciated.
+
+
+- Created with ❤️ by SAWHILL
+
