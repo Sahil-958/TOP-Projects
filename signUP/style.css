@@ -267,8 +267,9 @@ input:focus {
   position: absolute;
   width: 60px;
   height: 60px;
-  line-height: 60px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   right: 20px;
   bottom: 50px; 
   background-color: var(--accent); 
@@ -285,7 +286,7 @@ input:focus {
 
 @media (max-width:720px) {
   .floatingButton{
-    display: block;
+    display: flex;
   }
   .main-cont {
     flex-direction: column;
