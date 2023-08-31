@@ -51,6 +51,7 @@ body {
 }
 
 .left-cont {
+  position: relative;
   max-width: 430px;
   min-width: 300px;
   flex: 1;
@@ -251,7 +252,41 @@ input:focus {
   bottom: -12px;
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px); /* Adjust this value for the desired bounce height */
+  }
+}
+.floatingButton {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 2rem;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  right: 20px;
+  bottom: 50px; 
+  background-color: var(--accent); 
+  border-radius: 50%;
+  animation: bounce 0.9s infinite;
+  -webkit-box-shadow: 0 0 15px 6px var(--primary);
+  -moz-box-shadow: 0 0 15px 6px var(--primary);
+  box-shadow: 0 0 15px 6px var(--primary);
+}
+
+.floatingButton {
+  display: none;
+}
+
 @media (max-width:720px) {
+  .floatingButton{
+    display: block;
+  }
   .main-cont {
     flex-direction: column;
     background: linear-gradient(var(--accent), var(--foreground));

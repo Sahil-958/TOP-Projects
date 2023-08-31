@@ -47,3 +47,25 @@ function submitHandler() {
         window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
     }
 }
+
+const floatingButton = document.createElement('a');
+floatingButton.classList.add('floatingButton');
+floatingButton.setAttribute('href', '#bottom');
+floatingButton.setAttribute('id', 'floatingButton');
+floatingButton.textContent = '↓';
+let leftCont=document.querySelector('.left-cont');
+leftCont.appendChild(floatingButton);
+
+let scrollListener = window.addEventListener('scroll', () => {
+    floatingButton.style.display='none';
+}, { once: true });
+
+floatingButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    target.scrollIntoView({
+        behavior: 'smooth'
+    });
+    floatingButton.style.display='none';
+});
+
