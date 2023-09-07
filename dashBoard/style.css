@@ -236,7 +236,8 @@ span.material-symbols-outlined {
 
 /* Styles for the overlay */
 .overlay {
-    display: none;
+    opacity: 0;
+    transform: scale(0);
     position: fixed;
     top: 0;
     left: 0;
@@ -244,6 +245,12 @@ span.material-symbols-outlined {
     height: 100%;
     /* background-color: rgba(0, 0, 0, 0.7); */
     z-index: 999;
+    transition: all 0.5s ease;
+}
+
+.overlay.show{
+    opacity: 1;
+    transform: scale(1);
 }
 
 .overlay-content {
@@ -252,11 +259,18 @@ span.material-symbols-outlined {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0) translate3d(100px);
     background-color: var(--bg-color);
     padding: 15px;
     border-radius: 20px;
     box-shadow: 0 0 10px var(--main-color);
+    transition: all 0.5s ease;
+}
+
+.overlay-content.show {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1) ; /* When 'show' class is added, it will scale in */
 }
 
 /* Make the iframe responsive */
