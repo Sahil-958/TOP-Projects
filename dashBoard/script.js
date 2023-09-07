@@ -36,11 +36,17 @@ function showFrame(e) {
     // Set the src attribute of the iframe
     document.getElementById('iframe').src = iframeURL;
 
-    // Show the overlay
-    document.getElementById('overlay').style.display = 'block';
+        // Add 'show' class to overlay content
+        document.querySelector('.overlay-content').classList.add('show');
+
+        // Add 'show' class to overlay
+        document.getElementById('overlay').classList.add('show');
 }
 
 function closeOverlay() {
-    // Hide the overlay
-    document.getElementById('overlay').style.display = 'none';
+        // remove 'show' class to overlay content
+        document.querySelector('.overlay-content').classList.remove('show');
+
+        // remove 'show' class to overlay
+        document.getElementById('overlay').classList.remove('show');
 }
