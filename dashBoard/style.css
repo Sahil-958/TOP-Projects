@@ -227,7 +227,7 @@ span.material-symbols-outlined {
 }
 
 .project:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .project:active {
@@ -507,3 +507,21 @@ iframe {
     }
 
 }
+/* For Webkit-based browsers (including Chromium) */
+::-webkit-scrollbar {
+    background-color: var(--bg-color);
+    width: 4px; /* width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: var(--bg-color); /* color of the track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--sub-color); /* color of the thumb */
+    border-radius: 6px; /* roundness of the thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover,::-webkit-scrollbar-thumb:active {
+    background-color: var(--main-color); /* color of the thumb on hover */
+  }
