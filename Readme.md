@@ -6,21 +6,13 @@ Welcome to my repository for exercises and projects completed during my journey 
 
 Explore the following projects with their live demos:
 
-### Landing Page Project
+## DashBoard
 
-Create a visually appealing landing page.
+A responsive project designed to reinforce my understanding of CSS Grid Layout. It features an aesthetic dual-color theme (dark and light) with smooth transitions.
 
-[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/landing_page_project/)
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/dashBoard/)
 
-![Rock Paper Scissors](assets/landing.png)
-
-## Rock Paper Scissors
-
-Test your luck against the computer in this classic game.
-
-[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/rps_project/)
-
-![Rock Paper Scissors](assets/rps.png)
+![DashBoard Desktop](assets/dashBoard.mp4)          |
 
 ## Etch-E-Sketch
 
@@ -49,6 +41,22 @@ Welcome to SignUp 4 Fun! This project presents a delightful and light-hearted si
 [Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/signUP)
 
 ![signUP 4 Fun](assets/signUP.png)
+
+## Rock Paper Scissors
+
+Test your luck against the computer in this classic game.
+
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/rps_project/)
+
+![Rock Paper Scissors](assets/rps.png)
+
+## Landing Page Project
+
+Create a visually appealing landing page.
+
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/landing_page_project/)
+
+![Rock Paper Scissors](assets/landing.png)
 
 ## Appreciation
 
