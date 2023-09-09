@@ -12,7 +12,7 @@ A responsive project designed to reinforce my understanding of CSS Grid Layout. 
 
 [Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/dashBoard/)
 
-![DashBoard Desktop](assets/dashBoard.mp4)          |
+![DashBoard Desktop](assets/dashBoard.gif)
 
 ## Etch-E-Sketch
 
