@@ -76,9 +76,10 @@ body.dark-theme img {
     border: 1px solid var(--sub-color);
     display: flex;
     align-items: center;
+    gap: 25px;
     justify-content: space-between;
     border-radius: var(--border-radius);
-
+    transition: margin 0.5s ease;
 }
 
 .search {
@@ -120,7 +121,7 @@ body.dark-theme img {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    gap: 30px;
+    gap: 20px;
 }
 
 .headerBtns>* {
@@ -500,6 +501,10 @@ iframe {
             "sideBar header header" 1fr
             "sideBar content stats" 8fr
             "sideBar footer stats" 60px / minmax(70px, 70px) minmax(400px, 7fr) minmax(0px, 0px);
+    }
+
+    .header{
+        margin-right: 10px;
     }
 
     .stats {
