@@ -275,6 +275,7 @@ span.material-symbols-outlined {
 
 /* Make the iframe responsive */
 iframe {
+    border-radius: 20px;
     width: 100%;
     height: 100%;
 }
