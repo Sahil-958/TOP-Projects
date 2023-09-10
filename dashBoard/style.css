@@ -48,7 +48,8 @@ body {
     min-width: fit-content;
     min-height: 500px;
     color: var(--text-color);
-    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";}
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
 
 body.dark-theme img {
     filter: brightness(.8) contrast(1.2);
@@ -135,7 +136,7 @@ body.dark-theme img {
     transition: all 0.5s ease;
 }
 
-body.dark-theme .headerBtns img{
+body.dark-theme .headerBtns img {
     filter: brightness(2.5) contrast(0.8);
 }
 
@@ -249,7 +250,7 @@ span.material-symbols-outlined {
     transition: all 0.5s ease;
 }
 
-.overlay.show{
+.overlay.show {
     opacity: 1;
     transform: scale(1);
 }
@@ -271,7 +272,8 @@ span.material-symbols-outlined {
 .overlay-content.show {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1) ; /* When 'show' class is added, it will scale in */
+    transform: translate(-50%, -50%) scale(1);
+    /* When 'show' class is added, it will scale in */
 }
 
 /* Make the iframe responsive */
@@ -444,7 +446,7 @@ iframe {
     text-shadow: 0 0 0 var(--text-color);
 }
 
-.name{
+.name {
     font-style: italic;
     font-weight: bold;
 }
@@ -503,7 +505,7 @@ iframe {
             "sideBar footer stats" 60px / minmax(70px, 70px) minmax(400px, 7fr) minmax(0px, 0px);
     }
 
-    .header{
+    .header {
         margin-right: 10px;
     }
 
@@ -513,21 +515,28 @@ iframe {
     }
 
 }
+
 /* For Webkit-based browsers (including Chromium) */
 ::-webkit-scrollbar {
     background-color: var(--bg-color);
-    width: 4px; /* width of the scrollbar */
-  }
-  
-  ::-webkit-scrollbar-track {
-    background-color: var(--bg-color); /* color of the track */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--sub-color); /* color of the thumb */
-    border-radius: 6px; /* roundness of the thumb */
-  }
-  
-  ::-webkit-scrollbar-thumb:hover,::-webkit-scrollbar-thumb:active {
-    background-color: var(--main-color); /* color of the thumb on hover */
-  }
+    width: 4px;
+    /* width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+    /* color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--sub-color);
+    /* color of the thumb */
+    border-radius: 6px;
+    /* roundness of the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+    background-color: var(--main-color);
+    /* color of the thumb on hover */
+}
