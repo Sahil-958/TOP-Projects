@@ -120,6 +120,17 @@ body:not(.light-theme) img {
     gap: 10px;
 }
 
+.readStatusText {
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.readStatusText:hover {
+    color: var(--main-color);
+}
+
 .footer {
     background-color: var(--sub-color);
     grid-area: footer;
