@@ -174,7 +174,7 @@ function removeBook(e) {
         setTimeout(() => {
             gridCont.removeChild(bookToRemove);
         }, 1000);
-        if (bookIndex === 0) emptyLibararyUI();
+        if (bookLib.length === 0) emptyLibararyUI();
     }
 }
 
