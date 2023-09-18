@@ -17,7 +17,7 @@ themeBtnDark.addEventListener('click', e => switchTheme(e));
 addBtn.addEventListener('click', e => toggleDialog(e));
 closeOverlayBtn.addEventListener('click', e => toggleDialog(e));
 title.addEventListener('input', e => preventDuplicateTitle(e));
-gridCont.addEventListener('click', e => removeBook(e));
+gridCont.addEventListener('click', e => handleBookAction(e));
 
 document.addEventListener('keyup', function (e) {
     if (e.key === 'Escape') {
@@ -127,31 +127,11 @@ function updateCover(book, isValid) {
     }, 1000);
 }
 
-function removeBook(e) {
-    const trashBtn = e.target.closest('.trash');
-    if (trashBtn) {
-        const bookTitle = trashBtn.id.replace("trash", "");
-        const bookIndex = bookLib.findIndex(book => book.title === bookTitle);
-
-        if (bookIndex !== -1) {
-            bookLib.splice(bookIndex, 1);
-            let bookToRemove = document.getElementById(bookTitle);
-            bookToRemove.style.transition = 'all 0.5s ease';
-            bookToRemove.style.scale = '1.15';
-            bookToRemove.style.filter = 'blur(4px)'
-            setTimeout(() => {
-                bookToRemove.style.scale = '0';
-            }, 500);
-            setTimeout(() => {
-                gridCont.removeChild(bookToRemove);
-            }, 1000);
-            if (bookIndex === 0) emptyLibararyUI();
-        }
+function handleBookAction(e) {
+    if (e.target.closest('.trash')) {
+        removeBook(e);
     } else if (e.target.closest('.readStatusText')) {
-        const bookTitle = e.target.closest('.readStatusText').id.replace("readStatusText", "");
-        const bookIndex = bookLib.findIndex(book => book.title === bookTitle);
-        bookLib[bookIndex].readStatus = !bookLib[bookIndex].readStatus;
-        document.getElementById(e.target.closest('.readStatusText').id).textContent = `${bookLib[bookIndex].readStatus ? 'Completed' : 'Not Started'}`;
+        updateReadStatus(e);
     }
 }
 
@@ -175,4 +155,32 @@ function emptyLibararyUI() {
     setTimeout(() => {
         toggleDialog();
     }, 1000);
+}
+
+function removeBook(e) {
+    const trashBtn = e.target.closest('.trash');
+    const bookTitle = trashBtn.id.replace("trash", "");
+    const bookIndex = bookLib.findIndex(book => book.title === bookTitle);
+
+    if (bookIndex !== -1) {
+        bookLib.splice(bookIndex, 1);
+        let bookToRemove = document.getElementById(bookTitle);
+        bookToRemove.style.transition = 'all 0.5s ease';
+        bookToRemove.style.scale = '1.15';
+        bookToRemove.style.filter = 'blur(4px)'
+        setTimeout(() => {
+            bookToRemove.style.scale = '0';
+        }, 500);
+        setTimeout(() => {
+            gridCont.removeChild(bookToRemove);
+        }, 1000);
+        if (bookIndex === 0) emptyLibararyUI();
+    }
+}
+
+function updateReadStatus(e) {
+    const bookTitle = e.target.closest('.readStatusText').id.replace("readStatusText", "");
+    const bookIndex = bookLib.findIndex(book => book.title === bookTitle);
+    bookLib[bookIndex].readStatus = !bookLib[bookIndex].readStatus;
+    document.getElementById(e.target.closest('.readStatusText').id).textContent = `${bookLib[bookIndex].readStatus ? 'Completed' : 'Not Started'}`;
 }
