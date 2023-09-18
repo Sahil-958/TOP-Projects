@@ -142,7 +142,7 @@ function removeBook(e) {
             setTimeout(() => {
                 gridCont.removeChild(bookToRemove);
             }, 1000);
-
+            if (bookIndex === 0) emptyLibararyUI();
         }
     }
 }
@@ -161,4 +161,10 @@ function preventDuplicateTitle(e) {
         title.style.borderColor = "";
         document.getElementById('titleCont').querySelector('label').style.backgroundColor = "";
     }
+}
+
+function emptyLibararyUI() {
+    setTimeout(() => {
+        toggleDialog();
+    }, 1000);
 }
