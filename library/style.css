@@ -1,0 +1,358 @@
+.dark-theme {
+    --bg-color: #2d2e30;
+    --main-color: #7eddd3;
+    --caret-color: #7eddd3;
+    --sub-color: #54585c;
+    --sub-alt-color: #242527;
+    --text-color: #e3e6eb;
+    --error-color: #d36a7b;
+    --error-extra-color: #994154;
+    --colorful-error-color: #d36a7b;
+    --colorful-error-extra-color: #994154;
+}
+
+.light-theme {
+    --bg-color: #dbdbdb;
+    --caret-color: #8fd1c3;
+    --main-color: #8fd1c3;
+    --sub-color: #acacac;
+    --sub-alt-color: #a8a8a8;
+    --text-color: #454545;
+    --error-color: #ea8a9a;
+    --error-extra-color: #e0556d;
+    --colorful-error-color: #ea8a9a;
+    --colorful-error-extra-color: #e0556d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.5s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    height: 100vh;
+    min-width: 450px;
+    color: var(--text-color);
+}
+
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: clamp(60px, 4vw, 100px) 1fr 60px;
+    grid-template-areas: 'header' 'main' 'footer';
+}
+
+.header {
+    background-color: var(--sub-color);
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#logo {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+#logo>.highlight {
+    color: var(--main-color);
+    font-style: italic;
+}
+
+.main {
+    grid-area: main;
+    padding: 5vh 5vw;
+    overflow-y: scroll;
+}
+
+.grid-cont {
+    display: grid;
+    grid-template-columns: repeat(auto-fiLL, minmax(450px, 1fr));
+    gap: 20px;
+    height: 100%;
+}
+
+.card {
+    height: 100%;
+    max-height: 300px;
+    min-height: 260px;
+    border-radius: 10px;
+    background-color: var(--sub-alt-color);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+body:not(.light-theme) img {
+    filter: brightness(.7) contrast(1.3);
+}
+
+.card>img {
+    background-color: var(--sub-color);
+    border-radius: 10px 0 0 10px;
+    width: 200px;
+    transition: filter 0.8s ease;
+}
+
+.infoCont {
+    background-color: var(--sub-color);
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    padding: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.info {
+    width: 100%;
+    white-space: nowrap;
+    display: flex;
+    gap: 10px;
+}
+
+.footer {
+    background-color: var(--sub-color);
+    grid-area: footer;
+    font-size: clamp(20px, 2vw, 26px);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart {
+    display: inline-block;
+    transform: scale(1);
+    transition: all 0.2s ease-in;
+    color: transparent;
+    text-shadow: 0 0 0 var(--text-color);
+}
+
+.name,
+.name:visited {
+    color: var(--text-color);
+    font-style: italic;
+    font-weight: bold;
+}
+
+.footer:hover .heart {
+    padding: 0px 5px;
+    animation: pulsate 1s cubic-bezier(.29, 1.01, 1, -0.68) infinite alternate;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.8);
+    }
+}
+
+#themeSwitcher {
+    position: absolute;
+    right: 30px;
+    height: 32px;
+    width: 32px;
+}
+
+#themeSwitcher>#light,
+#themeSwitcher>#dark {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+.hide {
+    opacity: 0;
+    transform: scale(0) rotate(360deg);
+}
+
+.hideOverlay {
+    opacity: 0;
+    translate: 0 -500px;
+    transform: scale(0) rotateY(180deg);
+}
+
+
+#add {
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+#add:hover,
+#closeOverlay:hover,
+#addBook:hover {
+    scale: 1.02;
+}
+
+#add:active,
+#closeOverlay:active,
+#addBook:active {
+    scale: 0.98;
+}
+
+
+#overlay {
+    z-index: 99;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(3px);
+}
+
+#dialog {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: clamp(400px, 30vw, 500px);
+    height: min-content;
+    background-color: var(--sub-color);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+form>h2 {
+    font-size: 2rem;
+    align-self: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cont {
+    position: relative;
+}
+
+form>.cont>label {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    padding: 0 10px;
+    top: 50%;
+    left: 100%;
+    translate: -100% -50%;
+    height: 100%;
+    font-size: 1.3rem;
+    color: #000;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    background-color: var(--main-color);
+}
+
+.cont:focus-within label {
+    padding: 0 8px;
+    height: min-content;
+    top: -15px;
+    left: 10px;
+    font-size: 1.2rem;
+    translate: 0 0;
+    border-radius: 4px;
+    background-color: var(--main-color);
+}
+
+.cont>input:not(input[type="checkbox"]) {
+    color: inherit;
+    font-size: 1.2rem;
+    outline: none;
+    border: 2px solid var(--sub-alt-color);
+    width: 100%;
+    padding: 15px;
+    height: 50px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    transition: border 0.8s ease;
+}
+
+.cont>input:not(input[type="checkbox"]):focus {
+    border: 2px solid var(--main-color);
+}
+
+#errorText {
+    transition: all 0.3s ease;
+    color: var(--error-color);
+    position: absolute;
+    bottom: -25px;
+    left: 10px;
+}
+
+#readCheckboxCont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+#readStatus {
+    width: 24px;
+    height: 24px;
+    accent-color: var(--main-color);
+}
+
+.trash {
+    right: 15px;
+    bottom: 15px;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    transition: all 0.3s ease;
+}
+
+.trash:hover {
+    scale: 1.2;
+}
+
+.trash:active {
+    scale: 0.8;
+}
+
+.trash>svg {
+    fill: var(--error-color);
+}
+
+#buttonCont {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+#addBook,
+#closeOverlay {
+    width: 40%;
+    border: none;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: var(--main-color);
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+@media (max-width:450px) {}
