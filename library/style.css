@@ -75,6 +75,7 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     gap: 20px;
     height: 100%;
+    grid-auto-rows: min-content;
 }
 
 .card {
