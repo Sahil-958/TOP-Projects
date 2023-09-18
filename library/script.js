@@ -184,3 +184,21 @@ function updateReadStatus(e) {
     bookLib[bookIndex].readStatus = !bookLib[bookIndex].readStatus;
     document.getElementById(e.target.closest('.readStatusText').id).textContent = `${bookLib[bookIndex].readStatus ? 'Completed' : 'Not Started'}`;
 }
+
+function addDefaultBooks() {
+    const defaultBooks = [
+        { title: "Clean Code", author: "Robert C. Martin", pages: 464, cover: "", readStatus: false },
+        { title: "Design Patterns", author: "Erich Gamma", pages: 395, cover: "", readStatus: false },
+        { title: "Code Complete", author: "Steve McConnell", pages: 960, cover: "", readStatus: false }
+    ];
+
+    defaultBooks.forEach((bookData, index) => {
+        setTimeout(() => {
+            let book = new Book(bookData.title, bookData.author, bookData.pages, bookData.cover, bookData.readStatus);
+            isValidImageURL(book, updateCover);
+            addBook(book);
+        }, index * 1000);
+    });
+}
+
+addDefaultBooks();
