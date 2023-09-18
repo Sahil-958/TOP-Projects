@@ -82,6 +82,9 @@ function addBook(book) {
     bookCard.innerHTML = `<img src="assets/placeholder.svg" alt="Book Cover" id="${book.title}image">
     <div class="infoCont">
         <div class="info">
+        <h2>Info</h2>
+        </div>
+        <div class="info">
             <p>Title:</p>
             <p>${book.title}</p>
         </div>
