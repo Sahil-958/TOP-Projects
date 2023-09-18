@@ -97,8 +97,8 @@ function addBook(book) {
             <p>${book.pages}</p>
         </div>
         <div class="info">
-            <p>Stats:</p>
-            <p>${book.readStatus}</p>
+            <p>Status:</p>
+            <p id="${book.title}readStatusText" class="readStatusText">${book.readStatus ? 'Completed' : 'Not Started'}</p>
         </div>
     </div>
     <div class="infoBtnCont">
@@ -147,6 +147,11 @@ function removeBook(e) {
             }, 1000);
             if (bookIndex === 0) emptyLibararyUI();
         }
+    } else if (e.target.closest('.readStatusText')) {
+        const bookTitle = e.target.closest('.readStatusText').id.replace("readStatusText", "");
+        const bookIndex = bookLib.findIndex(book => book.title === bookTitle);
+        bookLib[bookIndex].readStatus = !bookLib[bookIndex].readStatus;
+        document.getElementById(e.target.closest('.readStatusText').id).textContent = `${bookLib[bookIndex].readStatus ? 'Completed' : 'Not Started'}`;
     }
 }
 
