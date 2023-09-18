@@ -34,7 +34,8 @@
 body {
     background-color: var(--bg-color);
     height: 100vh;
-    min-width: 450px;
+    min-height: 400px;
+    min-width: 400px;
     color: var(--text-color);
 }
 
@@ -71,7 +72,7 @@ body {
 
 .grid-cont {
     display: grid;
-    grid-template-columns: repeat(auto-fiLL, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     gap: 20px;
     height: 100%;
 }
@@ -108,7 +109,7 @@ body:not(.light-theme) img {
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    gap: 15px;
     position: relative;
 }
 
@@ -227,7 +228,7 @@ body:not(.light-theme) img {
     left: 50%;
     top: 50%;
     translate: -50% -50%;
-    width: clamp(400px, 30vw, 500px);
+    width: clamp(380px, 30vw, 500px);
     height: min-content;
     background-color: var(--sub-color);
     padding: 25px;
@@ -356,4 +357,8 @@ form>.cont>label {
     outline: none;
 }
 
-@media (max-width:450px) {}
+@media (max-width:500px) {
+    .grid-cont {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
