@@ -85,6 +85,7 @@ body {
     display: flex;
     align-items: center;
     overflow: hidden;
+    position: relative;
 }
 
 body:not(.light-theme) img {
