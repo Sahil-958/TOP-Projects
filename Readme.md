@@ -22,6 +22,12 @@ Get creative and draw your own pixel art.
 
 ![Etch-E-Sketch](assets/etch-e-sketch.png)
 
+## Library (LibSy)
+
+A responsive project designed to reinforce my understanding of JS OOP concepts. It features an aesthetic dual-color theme (dark and light) with smooth transitions.
+
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/library/)
+
 
 ## Calcy
 
