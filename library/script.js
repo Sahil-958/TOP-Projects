@@ -110,7 +110,7 @@ function addBook(book) {
     `;
     gridCont.appendChild(bookCard);
     let coverImg = document.getElementById(book.title + "image");
-    coverImg.style.transition = "opacity 1s ease-in-out";
+    coverImg.style.transition = "all 1s ease-in-out";
 }
 
 function updateCover(book, isValid) {
