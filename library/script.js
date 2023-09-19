@@ -187,9 +187,9 @@ function updateReadStatus(e) {
 
 function addDefaultBooks() {
     const defaultBooks = [
-        { title: "Clean Code", author: "Robert C. Martin", pages: 464, cover: "", readStatus: false },
-        { title: "Design Patterns", author: "Erich Gamma", pages: 395, cover: "", readStatus: false },
-        { title: "Code Complete", author: "Steve McConnell", pages: 960, cover: "", readStatus: false }
+        { title: "Clean Code", author: "Robert C. Martin", pages: 464, cover: "https://github.com/dev-marko/clean-code-book/raw/master/book_cover.png", readStatus: false },
+        { title: "Design Patterns", author: "Erich Gamma", pages: 395, cover: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Beruj_XEbxSKYIy18cLDMwAAAA%26pid%3DApi&f=1&ipt=33224024620ab9c2a2834065df1358d59488f7aaa46e10eb33bddd31db85f22c&ipo=images", readStatus: false },
+        { title: "Code Complete", author: "Steve McConnell", pages: 960, cover: "https://upload.wikimedia.org/wikipedia/en/5/58/Code_Complete_1st_edition.jpg", readStatus: false }
     ];
 
     defaultBooks.forEach((bookData, index) => {
