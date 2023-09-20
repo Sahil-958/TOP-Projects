@@ -28,6 +28,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   height: 100vh;
   min-width: 450px;
@@ -79,17 +83,17 @@ body {
   justify-content: center;
 }
 
-.logo img{
+.logo img {
   height: 100%;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 
-.logo img:hover{
+.logo img:hover {
   transform: rotate(-360deg) scale(1.2);
 }
 
-.logo a{
+.logo a {
   height: 60%;
 }
 
@@ -253,13 +257,18 @@ input:focus {
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
-    transform: translateY(8px); /* Adjust this value for the desired bounce height */
+    transform: translateY(8px);
+    /* Adjust this value for the desired bounce height */
   }
 }
+
 .floatingButton {
   text-decoration: none;
   color: var(--text);
@@ -271,8 +280,8 @@ input:focus {
   justify-content: center;
   align-items: center;
   right: 20px;
-  bottom: 50px; 
-  background-color: var(--accent); 
+  bottom: 50px;
+  background-color: var(--accent);
   border-radius: 50%;
   animation: bounce 0.9s infinite;
   -webkit-box-shadow: 0 0 15px 6px var(--primary);
@@ -285,9 +294,10 @@ input:focus {
 }
 
 @media (max-width:720px) {
-  .floatingButton{
+  .floatingButton {
     display: flex;
   }
+
   .main-cont {
     flex-direction: column;
     background: linear-gradient(var(--accent), var(--foreground));

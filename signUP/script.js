@@ -53,19 +53,11 @@ floatingButton.classList.add('floatingButton');
 floatingButton.setAttribute('href', '#bottom');
 floatingButton.setAttribute('id', 'floatingButton');
 floatingButton.innerHTML = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 m-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>';
-let leftCont=document.querySelector('.left-cont');
+let leftCont = document.querySelector('.left-cont');
 leftCont.appendChild(floatingButton);
 
 let scrollListener = window.addEventListener('scroll', () => {
-    floatingButton.style.display='none';
+    floatingButton.style.display = 'none';
 }, { once: true });
 
-floatingButton.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    target.scrollIntoView({
-        behavior: 'smooth'
-    });
-    floatingButton.style.display='none';
-});
 
