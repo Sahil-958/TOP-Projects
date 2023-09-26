@@ -14,6 +14,12 @@ A responsive project designed to reinforce my understanding of CSS Grid Layout. 
 
 ![DashBoard Desktop](assets/dashBoard.gif)
 
+## Tic-Tac-Toe
+
+A responsive project designed to reinforce my understanding of JS Factory Functions & Modules. It features an aesthetic color theme with smooth transitions.
+
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/tic_tac_toe/)
+
 ## Etch-E-Sketch
 
 Get creative and draw your own pixel art.
