@@ -249,7 +249,9 @@ const displayController = (() => {
     }
 
     function showWinningSequence(winner) {
-        toggleOverlay();
+        setTimeout(() => {
+            toggleOverlay();
+        }, 400);
         injectRoundEndHTML(winner);
         setTimeout(() => {
             resetGame();
