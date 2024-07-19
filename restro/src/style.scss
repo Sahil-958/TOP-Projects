@@ -1,5 +1,22 @@
-$coolor: pink;
+@import './colors';
 
-.hello {
-  color: $coolor;
+$radius: 5px;
+
+body {
+  background: $background;
+  color: $on_background;
+}
+
+nav {
+  border-radius: $radius;
+  padding: 20px;
+  background: $secondary_container;
+}
+
+button {
+  all: unset;
+  background: $secondary;
+  color: $on_secondary;
+  padding: 10px 20px;
+  border-radius: $radius;
 }
