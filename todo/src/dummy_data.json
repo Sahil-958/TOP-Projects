@@ -1,0 +1,134 @@
+[
+  {
+    "id": "5d7b5cde-34ab-4ef8-89e3-8dcb5e88f3e2",
+    "title": "Prepare Dinner",
+    "description": "Cook a meal for the family.",
+    "createdOn": "2024-07-28T17:30:00.456Z",
+    "dueDate": "2024-08-01T19:30:00.000Z",
+    "priority": "medium",
+    "completed": false,
+    "tags": ["cooking", "family"],
+    "project": "personal"
+  },
+  {
+    "id": "bd8c382c-055c-4078-bb12-5e6e7df560b2",
+    "title": "Gym Workout",
+    "description": "Attend the gym for a cardio and strength training session.",
+    "createdOn": "2024-07-30T07:55:30.789Z",
+    "dueDate": "2024-08-04T19:00:00.000Z",
+    "priority": "medium",
+    "completed": false,
+    "tags": ["fitness", "health"],
+    "project": "personal"
+  },
+  {
+    "id": "d062b6b5-94ab-4c4b-9c09-20dff79ec4b5",
+    "title": "Write Blog Post",
+    "description": "Draft a blog post about the latest trends in technology.",
+    "createdOn": "2024-07-31T12:40:10.123Z",
+    "dueDate": "2024-08-07T18:00:00.000Z",
+    "priority": "medium",
+    "completed": false,
+    "tags": ["writing", "blog"],
+    "project": "personal"
+  },
+  {
+    "id": "1a4d7b8a-f8c7-41b4-9a71-14f7740925c9",
+    "title": "Plan Presentation",
+    "description": "Prepare slides and practice for the upcoming presentation.",
+    "createdOn": "2024-07-27T11:10:23.456Z",
+    "dueDate": "2024-08-10T15:00:00.000Z",
+    "priority": "high",
+    "completed": false,
+    "tags": ["work", "presentation"],
+    "project": "work"
+  },
+  {
+    "id": "b5c97f0d-8b8d-4f1e-8b89-5d1d8b7a994d",
+    "title": "Review Code",
+    "description": "Go through the latest code submissions and provide feedback.",
+    "createdOn": "2024-07-25T14:50:00.123Z",
+    "dueDate": "2024-08-13T16:00:00.000Z",
+    "priority": "high",
+    "completed": false,
+    "tags": ["code review", "development"],
+    "project": "work"
+  },
+  {
+    "id": "9f9d65b4-5c1e-4b9a-b7d7-e2f1b2a7619b",
+    "title": "Attend Workshop",
+    "description": "Participate in the workshop on advanced JavaScript techniques.",
+    "createdOn": "2024-07-26T09:00:00.789Z",
+    "dueDate": "2024-08-16T09:00:00.000Z",
+    "priority": "medium",
+    "completed": false,
+    "tags": ["workshop", "learning"],
+    "project": "career"
+  },
+  {
+    "id": "d3b3d13b-1b59-4cb0-8379-1788a8e347b2",
+    "title": "Finish Report",
+    "description": "Complete and submit the quarterly financial report.",
+    "createdOn": "2024-08-05T11:45:00.456Z",
+    "dueDate": "2024-08-19T23:59:00.000Z",
+    "priority": "high",
+    "completed": false,
+    "tags": ["work", "report"],
+    "project": "work"
+  },
+  {
+    "id": "c35b73e9-1df4-4df3-a41d-45bb9f8329d2",
+    "title": "Call Mom",
+    "description": "Catch up with mom and check how she's doing.",
+    "createdOn": "2024-08-06T16:30:45.123Z",
+    "dueDate": "2024-08-22T20:00:00.000Z",
+    "priority": "low",
+    "completed": false,
+    "tags": ["family", "call"],
+    "project": "personal"
+  },
+  {
+    "id": "3f6a8d56-2cce-41d2-a25e-1b9d1b344b24",
+    "title": "Buy Groceries",
+    "description": "Purchase milk, bread, and eggs from the supermarket.",
+    "createdOn": "2024-08-08T09:15:23.456Z",
+    "dueDate": "2024-08-25T18:00:00.000Z",
+    "priority": "medium",
+    "completed": true,
+    "tags": ["shopping", "groceries"],
+    "project": "personal"
+  },
+  {
+    "id": "7d7e3f7b-b8d7-432c-8ac8-70911d0a2fc8",
+    "title": "Update Resume",
+    "description": "Revise resume with recent work experience and skills.",
+    "createdOn": "2024-08-02T10:25:56.789Z",
+    "dueDate": "2024-08-28T12:00:00.000Z",
+    "priority": "high",
+    "completed": false,
+    "tags": ["career", "resume"],
+    "project": "career"
+  },
+  {
+    "id": "1e12410c-4f2f-44a8-bf4f-3bfc5f8c9f54",
+    "title": "Meeting with Team",
+    "description": "Discuss project progress and upcoming deadlines.",
+    "createdOn": "2024-08-07T14:20:10.678Z",
+    "dueDate": "2024-08-31T10:00:00.000Z",
+    "priority": "high",
+    "completed": true,
+    "tags": ["work", "meeting"],
+    "project": "work"
+  },
+  {
+    "id": "56ec4cbb-5b4e-41d7-bb14-fb9db67f2d5e",
+    "title": "Organize Files",
+    "description": "Sort and categorize files on the work computer.",
+    "createdOn": "2024-07-29T16:20:50.123Z",
+    "dueDate": "2024-08-01T17:00:00.000Z",
+    "priority": "low",
+    "completed": false,
+    "tags": ["organization", "work"],
+    "project": "work"
+  }
+]

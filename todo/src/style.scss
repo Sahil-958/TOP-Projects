@@ -1,0 +1,275 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+* {
+  @apply box-border;
+}
+
+body {
+  @apply p-4 flex flex-col gap-4 h-dvh bg-secondary-container text-on-background;
+}
+
+nav {
+  @apply bg-secondary-container;
+}
+
+#main {
+  @apply flex p-2 gap-2 rounded-3xl overflow-scroll bg-surface h-full relative;
+}
+
+#sidebar {
+  @apply flex flex-col flex-nowrap gap-2 p-2 rounded-l-2xl basis-80 bg-surface-container-highest overflow-hidden flex-shrink-0;
+
+  .sidebar-button {
+    @apply p-3 w-full bg-surface-container hover:bg-secondary-container active:scale-95 hover:scale-105 transition-transform duration-150 ease-in-out text-secondary first:rounded-tl-2xl last:rounded-bl-2xl
+    text-left cursor-pointer;
+  }
+
+  #sort-by-container,
+  #show-select-container,
+  #projects-container {
+    @apply p-3 w-full bg-surface-container text-secondary first:rounded-tl-2xl last:rounded-bl-2xl flex gap-2 justify-between items-center;
+
+    #sortBy,
+    #show,
+    #projects {
+      @apply py-1 px-2 bg-surface-container-highest transform-none outline-none text-primary rounded-lg flex-grow;
+    }
+  }
+
+
+  #tags-container {
+    @apply p-3 w-full bg-surface-container text-secondary first:rounded-tl-2xl
+    last:rounded-bl-2xl flex flex-wrap gap-2 overflow-auto items-start
+    content-start justify-start flex-grow;
+
+    .tag {
+      @apply py-1 px-2 text-xs rounded-xl bg-primary-container text-on-primary-container;
+
+      &.selected {
+        @apply bg-primary text-on-primary;
+      }
+    }
+  }
+}
+
+#content {
+  @apply flex flex-col flex-nowrap overflow-auto flex-grow rounded-r-2xl justify-start;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .todo,
+  .todo-body {
+    @apply first:rounded-tr-2xl last:rounded-br-2xl;
+  }
+}
+
+.todo {
+  @apply p-4 flex flex-col transition-all duration-500 ease-in-out bg-surface-container-highest mt-1 mb-1 first:mt-0 last:mb-0;
+
+  &.hide {
+
+    .todo-header,
+    .todo-body {
+      @apply p-0 h-0 m-0 overflow-hidden;
+    }
+
+    @apply scale-y-0 translate-x-full origin-top;
+    @apply h-0 p-0 m-0;
+  }
+
+  &.hideBody {
+    @apply p-0;
+
+    .todo-header {
+      @apply rounded-none;
+    }
+
+    &:first-child .todo-header {
+      @apply rounded-tr-2xl;
+    }
+
+    &:last-child .todo-header {
+      @apply rounded-br-2xl;
+    }
+
+    .todo-body {
+      @apply py-0 max-h-0 overflow-hidden;
+    }
+  }
+
+  .todo-header {
+    @apply flex p-4 justify-between items-center rounded-t-2xl transition-all duration-500 ease-in-out bg-surface-container relative overflow-hidden;
+
+    .todo-checkbox {
+      @apply flex items-center relative;
+
+      input[type="checkbox"] {
+        @apply hidden select-none;
+
+        &:checked {
+          +.checkbox {
+            @apply border bg-primary border-primary;
+            padding: 0 50%;
+          }
+
+          ~.todo-title {
+            @apply pl-0;
+          }
+        }
+      }
+
+      .todo-title {
+        @apply cursor-pointer pl-8 transition-all duration-1000 ease-in-out hover:text-primary;
+
+      }
+
+      .checkbox {
+        @apply p-2.5 rounded-full border-2 border-solid cursor-pointer absolute transition-all duration-500 ease-in-out border-on-surface hover:border-primary;
+      }
+    }
+
+    &.priority-low {
+      @apply bg-gradient-to-r from-surface-container to-secondary-container to-90%;
+
+      .todo-project,
+      .todo-delete-action,
+      .todo-edit-action,
+      .todo-due {
+        @apply text-on-secondary-container;
+
+        &.expired {
+          @apply text-error;
+        }
+      }
+    }
+
+    &.priority-medium {
+      @apply bg-gradient-to-r from-surface-container to-secondary to-90%;
+
+      .todo-project,
+      .todo-delete-action,
+      .todo-edit-action,
+      .todo-due {
+        @apply text-on-secondary;
+      }
+    }
+
+    &.priority-high {
+      @apply bg-gradient-to-r from-surface-container to-primary to-90%;
+
+      .todo-project,
+      .todo-delete-action,
+      .todo-edit-action,
+      .todo-due {
+        @apply text-on-primary;
+      }
+    }
+
+    .todo-meta {
+      @apply flex flex-col items-end transition-all duration-500 ease-in-out;
+
+      .todo-due {
+        @apply text-xs;
+      }
+
+      .todo-project {
+        @apply text-sm;
+      }
+    }
+
+    .todo-delete-action,
+    .todo-edit-action {
+      @apply absolute -right-full cursor-pointer transition-all duration-700 ease-in-out text-on-primary;
+
+      svg {
+        @apply h-8;
+      }
+    }
+
+    .todo-edit-action {
+      @apply duration-500 ease-in-out;
+    }
+
+    &:hover {
+      .todo-delete-action {
+        @apply right-2 hover:text-error;
+      }
+
+      .todo-edit-action {
+        @apply right-10;
+      }
+
+      .todo-meta {
+        @apply mr-14;
+      }
+    }
+
+  }
+
+  .todo-body {
+    @apply p-4 rounded-b-2xl h-full max-h-36 max-w-full transition-all duration-500 ease-in-out bg-surface-container overflow-auto break-words;
+
+    #todo-creation-para {
+      @apply text-xs text-on-surface;
+    }
+
+    .todo-tags {
+      @apply mt-2 text-sm text-primary;
+
+      .tag {
+        @apply py-1 px-2 text-xs rounded-xl bg-primary-container text-on-primary-container;
+      }
+    }
+  }
+}
+
+.no-todos {
+  @apply p-4 text-center text-on-secondary-container bg-surface-container-highest first:rounded-tr-2xl;
+}
+
+#create-todo-dialog {
+  @apply absolute w-4/5 h-max scale-0 p-4 bg-surface-container-highest rounded-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out z-50;
+
+  &.show-dialog {
+    @apply scale-100;
+  }
+
+  .create-todo {
+    @apply p-4 flex flex-col gap-2 bg-surface-container-highest rounded-2xl;
+
+    fieldset {
+      @apply text-on-surface bg-surface-container-highest border-2 border-solid border-secondary mt-1 mb-1 first:mt-0 last:mb-0 px-1 first:rounded-t-xl last:rounded-b-xl;
+
+      legend {
+        @apply text-primary ml-4 text-xs;
+      }
+
+      input {
+        @apply w-full h-full pl-2 pb-2 bg-surface-container-highest transform-none outline-none text-primary;
+      }
+
+      #priority {
+        @apply w-full h-full pb-2 bg-surface-container-highest transform-none outline-none text-primary mx-2;
+        width: calc(100% - 20px);
+      }
+    }
+
+    #todo-submit-button {
+      @apply p-2 mt-4 w-full bg-secondary-container text-on-primary-container cursor-pointer hover:bg-primary hover:text-on-primary rounded-xl;
+    }
+  }
+}
+
+#overlay {
+  @apply absolute w-full h-full opacity-0 invisible backdrop-blur-lg rounded-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out bg-secondary-container bg-opacity-50 z-40;
+
+  &.show-overlay {
+    @apply visible opacity-100;
+  }
+}
