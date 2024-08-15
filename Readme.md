@@ -14,6 +14,14 @@ A responsive project designed to reinforce my understanding of CSS Grid Layout. 
 
 ![DashBoard Desktop](assets/dashBoard.gif)
 
+
+## ToDo List
+
+A project designed to reinforce my understanding of local storage,modules and tailwind css.
+
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/todo/dist/)
+
+
 ## Tic-Tac-Toe
 
 A responsive project designed to reinforce my understanding of JS Factory Functions & Modules. It features an aesthetic color theme with smooth transitions.
