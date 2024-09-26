@@ -526,10 +526,7 @@ function Skills({ skills, setSkills }) {
 }
 
 function Page({ pageIdx, state, stateMutators }) {
-  const pages = useMemo(
-    () => [PersonalDetails, Links, Skills, Education, Experience],
-    [],
-  );
+  const pages = [PersonalDetails, Links, Skills, Education, Experience];
 
   const ActivePage = pages[pageIdx - 1];
 
