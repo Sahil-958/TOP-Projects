@@ -15,6 +15,12 @@ A responsive project designed to reinforce my understanding of CSS Grid Layout. 
 ![DashBoard Desktop](assets/dashBoard.gif)
 
 
+## Meca
+
+A react project designed to reinforce my understanding of React useEffect and useState hooks. 
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/meca/dist/)
+
+
 ## ToDo List
 
 A project designed to reinforce my understanding of local storage,modules and tailwind css.
