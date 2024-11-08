@@ -7,13 +7,23 @@ import {
   Popover,
   ActionIcon,
   Select,
+  Space,
   useMantineColorScheme,
+  useMantineTheme,
+  AppShell,
+  Burger,
+  Group,
+  TextInput,
 } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { IoMdColorPalette } from "react-icons/io";
-import { FaSun, FaMoon, FaAdjust } from "react-icons/fa";
+import { SiFdroid } from "react-icons/si";
+import { FaSun, FaMoon, FaAdjust, FaSearch } from "react-icons/fa";
+import "@mantine/core/styles.css";
 
 function Root() {
   const [accentColor, setAccentColor] = useState("rgba(47, 119, 150, 0.7)");
+  const [opened, { toggle }] = useDisclosure();
   return (
     <>
       <MantineProvider
@@ -22,31 +32,63 @@ function Root() {
           colors: { custom: generateColors(accentColor) },
         }}
       >
-        <div className="flex flex-col">
-          <Popover width={300} position="bottom" withArrow shadow="md">
-            <Popover.Target>
-              <ActionIcon>
-                <IoMdColorPalette />
-              </ActionIcon>
-            </Popover.Target>
-            <Popover.Dropdown>
-              <ColorPicker
-                format="rgba"
-                fullWidth
-                value={accentColor}
-                onChange={setAccentColor}
+        <AppShell
+          header={{ height: 60 }}
+          navbar={{
+            width: 300,
+            breakpoint: "sm",
+            collapsed: { mobile: !opened },
+          }}
+          padding="md"
+        >
+          <AppShell.Header>
+            <Group grow h="100%" px="md">
+              <Group>
+                <Burger
+                  opened={opened}
+                  onClick={toggle}
+                  hiddenFrom="sm"
+                  size="sm"
+                />
+                <SiFdroid size={20} />
+              </Group>
+              <TextInput
+                variant="filled"
+                size="xs"
+                radius="md"
+                leftSectionPointerEvents="none"
+                leftSection={<FaSearch />}
+                placeholder="App search"
               />
-              <ThemeToggle />
-            </Popover.Dropdown>
-          </Popover>
-          <Outlet />
-        </div>
+            </Group>
+          </AppShell.Header>
+          <AppShell.Navbar p="md">
+            <Popover width={300} position="bottom" withArrow shadow="md">
+              <Popover.Target>
+                <ActionIcon>
+                  <IoMdColorPalette />
+                </ActionIcon>
+              </Popover.Target>
+              <Popover.Dropdown>
+                <ColorPicker
+                  format="rgba"
+                  fullWidth
+                  value={accentColor}
+                  onChange={setAccentColor}
+                />
+                <Space h="xs" />
+                <ThemeToggle />
+              </Popover.Dropdown>
+            </Popover>
+          </AppShell.Navbar>
+          <AppShell.Main>
+            <Outlet />
+          </AppShell.Main>
+        </AppShell>
       </MantineProvider>
     </>
   );
 }
-
-import React from "react";
 
 function ThemeToggle() {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
