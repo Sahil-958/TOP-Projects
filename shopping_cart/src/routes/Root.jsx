@@ -1,4 +1,4 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { generateColors } from "@mantine/colors-generator";
 import {
@@ -90,42 +90,63 @@ function Root() {
 }
 
 function Search() {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [searchSuggestionLabel, setSearchSuggestionLabel] = useState(
-    Array.from({ length: 5 }, (_, i) => `Suggestion ${i + 1}`),
-  );
+  const [searchSuggestionLabel, setSearchSuggestionLabel] = useState([
+    {
+      //group: `Searching for Term: "${searchValue}"`,
+      group: null,
+      items: Array.from({ length: 5 }, (_, i) => `Suggestion ${i + 1}`),
+    },
+  ]);
   const [searchSuggestion, setSearchSuggestion] = useState({});
 
   useEffect(() => {
     const controller = new AbortController();
     setIsLoading(true);
-    console.log("fetching data");
+    setSearchSuggestionLabel((prev) => [
+      {
+        ...prev[0],
+        items:
+          prev[0].items.length === 0
+            ? Array.from({ length: 5 }, (_, i) => `Suggestion ${i + 1}`)
+            : prev[0].items,
+        group:
+          searchValue.length > 0
+            ? `Searching for Term: "${searchValue}"`
+            : "Getting Suggestions",
+      },
+    ]);
     const fetchData = async () => {
       try {
-        await fetch(
-          `https://dummyjson.com/products/search?q=${searchValue}&limit=5&delay=2000`,
+        console.log("fetching data");
+        const res = await fetch(
+          `https://dummyjson.com/products/search?q=${searchValue}&limit=5&delay=5000`,
           { signal: controller.signal },
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            setSearchSuggestion({
-              ...data,
-            });
-            setSearchSuggestionLabel([
-              {
-                group: `${data.total} results found for Term: "${searchValue}"`,
-                items: data.products.map((product) => product.description),
-              },
-            ]);
-          });
-        console.log("fetched");
-      } catch (err) {
-        console.log("Aborted");
-        return;
-      } finally {
+        );
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        const data = await res.json();
+        setSearchSuggestion({ ...data });
+        setSearchSuggestionLabel([
+          {
+            group:
+              searchValue.length > 0
+                ? `${data.total} results found for Term: "${searchValue}"`
+                : `Top 5 from ${data.total} Suggestions`,
+            items: data.products.map((product) => product.title),
+          },
+        ]);
+        console.log("Fetch completed.");
         setIsLoading(false);
+      } catch (error) {
+        if (error.name === "AbortError") {
+          console.log("Fetch aborted.");
+        } else {
+          console.error("Error during fetch:", error);
+        }
       }
     };
     fetchData();
@@ -138,7 +159,7 @@ function Search() {
 
   function getSerachTermSuggestionCard(res) {
     const product = searchSuggestion?.products?.find(
-      (product) => product.description === res.option.value,
+      (product) => product.title === res.option.value,
     );
     return (
       <>
@@ -185,11 +206,21 @@ function Search() {
     );
   }
 
+  function handleOptionSubmit(option) {
+    navigate(`/search/${option.value}`);
+    console.log("Option Submitted: ", option);
+  }
+
   return (
     <>
       <Autocomplete
         value={searchValue}
         onChange={setSearchValue}
+        onSubmit={handleOptionSubmit}
+        onKeyUp={(e) => {
+          if (e.key === "Enter") handleOptionSubmit({ value: searchValue });
+        }}
+        onOptionSubmit={handleOptionSubmit}
         variant="filled"
         size="sm"
         radius="md"
