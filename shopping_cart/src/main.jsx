@@ -4,27 +4,17 @@ import "./index.css";
 import App from "./App.jsx";
 import SearchPage from "./routes/SearchPage.jsx";
 import Root from "./routes/Root.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      {
-        path: "app",
-        element: <App />,
-      },
-      {
-        path: "search",
-        element: <SearchPage />,
-      },
-    ],
-  },
-]);
+import { BrowserRouter, Routes, Route } from "react-router";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Root />}>
+          <Route path="app" element={<App />} />
+          <Route path="search/" element={<SearchPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </StrictMode>,
 );
