@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { generateColors } from "@mantine/colors-generator";
 import {
@@ -17,6 +17,7 @@ import {
   Flex,
   Avatar,
   Title,
+  Text,
   Stack,
   Autocomplete,
 } from "@mantine/core";
@@ -90,12 +91,12 @@ function Root() {
 }
 
 function Search() {
-  const navigate = useNavigate();
+  let navigate = useNavigate();
+  const [dropdownOpened, setDropdownOpened] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [searchSuggestionLabel, setSearchSuggestionLabel] = useState([
     {
-      //group: `Searching for Term: "${searchValue}"`,
       group: null,
       items: Array.from({ length: 5 }, (_, i) => `Suggestion ${i + 1}`),
     },
@@ -120,7 +121,6 @@ function Search() {
     ]);
     const fetchData = async () => {
       try {
-        console.log("fetching data");
         const res = await fetch(
           `https://dummyjson.com/products/search?q=${searchValue}&limit=5&delay=5000`,
           { signal: controller.signal },
@@ -139,7 +139,6 @@ function Search() {
             items: data.products.map((product) => product.title),
           },
         ]);
-        console.log("Fetch completed.");
         setIsLoading(false);
       } catch (error) {
         if (error.name === "AbortError") {
@@ -163,64 +162,54 @@ function Search() {
     );
     return (
       <>
-        <Flex
-          className="w-full"
-          direction={"row"}
-          gap={5}
-          justify={"space-between"}
-          align={"center"}
-        >
+        <Group w={"100%"} gap={5} wrap="nowrap">
           <Skeleton height={70} width={60} radius="sm" visible={isLoading}>
             <Avatar src={product?.images[0]} size={56} radius="xl" />
           </Skeleton>
-          <Stack gap={5} className="w-full">
-            <Skeleton
-              height={20}
-              width={"100%"}
-              radius="sm"
-              visible={isLoading}
-            >
-              <Title size="md" textWrap="pretty">
+          <Stack gap={5} w={"100%"}>
+            <Skeleton height={20} radius="sm" visible={isLoading}>
+              <Title size="md" lineClamp={1} textWrap="pretty">
                 {product?.title}
               </Title>
             </Skeleton>
-            <Skeleton
-              height={45}
-              width={"100%"}
-              radius="sm"
-              visible={isLoading}
-            >
-              <Title
-                truncate={"end"}
-                lineClamp={2}
-                size="sm"
-                c="dimmed"
-                textWrap="pretty"
-              >
+            <Skeleton height={45} radius="sm" visible={isLoading}>
+              <Title className="text-nowrap" lineClamp={2} size="sm" c="dimmed">
                 {product?.description}
               </Title>
             </Skeleton>
           </Stack>
-        </Flex>
+        </Group>
       </>
     );
   }
 
   function handleOptionSubmit(option) {
-    navigate(`/search/${option.value}`);
-    console.log("Option Submitted: ", option);
+    navigate(`/search?q=${option}&total=${searchSuggestion.total}&delay=3000`);
   }
 
   return (
     <>
       <Autocomplete
         value={searchValue}
-        onChange={setSearchValue}
-        onSubmit={handleOptionSubmit}
-        onKeyUp={(e) => {
-          if (e.key === "Enter") handleOptionSubmit({ value: searchValue });
+        dropdownOpened={dropdownOpened}
+        onClickCapture={setDropdownOpened}
+        onFocusCapture={setDropdownOpened}
+        onChange={(val) => {
+          setSearchValue(val);
         }}
-        onOptionSubmit={handleOptionSubmit}
+        onOptionSubmit={(val) => {
+          //handleOptionSubmit(val);
+          setDropdownOpened(false);
+        }}
+        onBlur={() => setDropdownOpened(false)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleOptionSubmit(searchValue);
+            setDropdownOpened(false);
+          } else if (e.key === "Escape") {
+            setDropdownOpened(false);
+          }
+        }}
         variant="filled"
         size="sm"
         radius="md"
