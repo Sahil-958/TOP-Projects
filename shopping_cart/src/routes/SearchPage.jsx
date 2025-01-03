@@ -15,6 +15,7 @@ import {
   Group,
   ScrollArea,
   Divider,
+  Loader,
   useMantineTheme,
 } from "@mantine/core";
 
@@ -29,6 +30,9 @@ const SearchPage = () => {
   let url = `https://dummyjson.com/products/search?q=${query}&limit=${limit}&skip=${skip}&delay=${delay}`;
   let { data, error, loading } = useFetchProducts(url);
   const [productsMap, setProductsMap] = useState(new Map());
+  useEffect(() => {
+    productsMap.clear();
+  }, [query]);
 
   useEffect(() => {
     if (data?.products) {
@@ -71,10 +75,21 @@ const SearchPage = () => {
       >
         <Divider
           mb="md"
-          label=<Text size="xs">
-            {loading
-              ? "Hang Tight While We Fetch Products..."
-              : `${data.total} Products found for Term: `}
+          label=<Text size="sm">
+            <Text
+              fw={700}
+              tt={"capitalize"}
+              size="md"
+              span
+              c={theme.primaryColor}
+            >
+              {!loading && data.total}
+            </Text>
+            {loading ? (
+              <Loader color={theme.primaryColor} type="dots" />
+            ) : (
+              ` Products found for Term: `
+            )}
             <Text
               fw={700}
               tt={"capitalize"}
