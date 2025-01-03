@@ -9,15 +9,12 @@ import {
   Select,
   Space,
   useMantineColorScheme,
-  useMantineTheme,
   AppShell,
   Burger,
   Group,
   Skeleton,
-  Flex,
   Avatar,
   Title,
-  Text,
   Stack,
   Autocomplete,
 } from "@mantine/core";
@@ -28,9 +25,16 @@ import { FaSun, FaMoon, FaAdjust, FaSearch } from "react-icons/fa";
 import "@mantine/core/styles.css";
 
 function Root() {
-  const [accentColor, setAccentColor] = useState("rgba(47, 119, 150, 0.7)");
+  let color = window.localStorage.getItem("accentColor");
+  const [accentColor, setAccentColor] = useState(
+    color || "rgba(47, 119, 150, 0.7)",
+  );
+  function updateAccentColor(color) {
+    setAccentColor(color);
+    //also updaate in local storage
+    window.localStorage.setItem("accentColor", color);
+  }
   const [opened, { toggle }] = useDisclosure();
-
   return (
     <>
       <MantineProvider
@@ -74,7 +78,7 @@ function Root() {
                   format="rgba"
                   fullWidth
                   value={accentColor}
-                  onChange={setAccentColor}
+                  onChange={updateAccentColor}
                 />
                 <Space h="xs" />
                 <ThemeToggle />
@@ -184,7 +188,7 @@ function Search() {
   }
 
   function handleOptionSubmit(option) {
-    navigate(`/search?q=${option}&total=${searchSuggestion.total}&delay=3000`);
+    navigate(`/search?q=${option}`);
   }
 
   return (
