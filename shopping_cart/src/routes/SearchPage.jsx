@@ -19,26 +19,45 @@ import {
 } from "@mantine/core";
 
 const SearchPage = () => {
-  let navigate = useNavigate();
+  const theme = useMantineTheme();
+  const navigate = useNavigate();
   let [searchParams] = useSearchParams();
   let query = searchParams.get("q") || "";
   let limit = Number(searchParams.get("limit")) || 10;
   let delay = Number(searchParams.get("delay")) || 5000;
   let skip = Number(searchParams.get("skip")) || 0;
   let url = `https://dummyjson.com/products/search?q=${query}&limit=${limit}&skip=${skip}&delay=${delay}`;
-
   let { data, error, loading } = useFetchProducts(url);
+  const [productsMap, setProductsMap] = useState(new Map());
+
+  useEffect(() => {
+    if (data?.products) {
+      setProductsMap((prev) => {
+        const newMap = new Map(prev); // Clone existing map
+        data.products.forEach((product) => {
+          if (!newMap.has(product.id)) {
+            newMap.set(product.id, product); // Add unique products
+          }
+        });
+        return newMap;
+      });
+    }
+  }, [data]);
+
+  const products = Array.from(productsMap.values()); // Convert Map to Array for rendering
 
   const fetchNextPage = () => {
     if (loading) return;
-    let upSkip = skip + limit > data.total ? data?.total - limit : skip + limit;
+    let upSkip =
+      skip + limit >= data?.total
+        ? skip + (data?.total - skip - 1)
+        : skip + limit;
     console.log("Fetching next page...", skip, upSkip, data?.total);
     navigate(
       `/search?q=${query}&limit=${limit}&skip=${upSkip}&delay=${delay}`,
       { replace: true },
     );
   };
-  const theme = useMantineTheme();
   return (
     <>
       <ScrollArea
@@ -69,73 +88,69 @@ const SearchPage = () => {
           labelPosition="center"
         />
         <Grid>
-          {loading
-            ? Array.from(
-                { length: data?.total > 10 ? 10 : data?.total && 10 },
-                (_, i) => (
-                  <Grid.Col span={{ base: 12, md: 6, lg: 3 }} key={i}>
-                    <Card
-                      //h={"100%"}
-                      h={400}
-                      shadow="sm"
-                      padding="lg"
-                      radius="md"
-                      withBorder
-                      key={i}
-                    >
-                      <Card.Section>
-                        <Skeleton h={200} radius="sm" />
-                      </Card.Section>
-                      <Group justify="space-between" mt={"md"}>
-                        <Skeleton height={20} width={"70%"} radius="sm" />
-                        <Skeleton height={20} width={"20%"} radius="xl" />
-                      </Group>
-                      <Skeleton height={15} radius="xs" mt={"xl"} />
-                      <Skeleton
-                        height={15}
-                        width={"80%"}
-                        radius="xs"
-                        mt={"xs"}
-                      />
-                      <Skeleton height={35} radius="xs" mt={"md"} />
-                    </Card>
-                  </Grid.Col>
-                ),
-              )
-            : data?.products?.map((product) => (
-                <Grid.Col span={{ base: 12, md: 6, lg: 3 }} key={product.id}>
+          {products?.map((product) => (
+            <Grid.Col span={{ base: 12, md: 6, lg: 3 }} key={product.id}>
+              <Card
+                h={400}
+                shadow="sm"
+                padding="lg"
+                radius="md"
+                withBorder
+                key={product.id}
+              >
+                <Card.Section>
+                  <ProductImage src={product.images[0]} title={product.title} />
+                </Card.Section>
+                <Stack h={"100%"} justify="end" gap={"sm"}>
+                  <Group justify="space-between" mt="md" mb="xs">
+                    <Title size="md" textWrap="wrap" lineClamp={1}>
+                      {product.title}
+                    </Title>
+                    <Badge>On Sale</Badge>
+                  </Group>
+                  <Text size="sm" c="dimmed" lineClamp={2}>
+                    {product.description}
+                  </Text>
+                  <Button fullWidth radius="md">
+                    Click
+                  </Button>
+                </Stack>
+              </Card>
+            </Grid.Col>
+          ))}
+
+          {loading &&
+            Array.from(
+              { length: data?.total > 10 ? 10 : data?.total || 10 },
+              (_, i) => (
+                <Grid.Col span={{ base: 12, md: 6, lg: 3 }} key={i}>
                   <Card
+                    //h={"100%"}
                     h={400}
                     shadow="sm"
                     padding="lg"
                     radius="md"
                     withBorder
-                    key={product.id}
+                    key={i}
                   >
                     <Card.Section>
-                      <ProductImage
-                        src={product.images[0]}
-                        title={product.title}
-                      />
+                      <Skeleton h={200} radius="sm" />
                     </Card.Section>
-                    <Stack h={"100%"} justify="end" gap={"sm"}>
-                      <Group justify="space-between" mt="md" mb="xs">
-                        <Title size="md" textWrap="wrap" lineClamp={1}>
-                          {product.title}
-                        </Title>
-                        <Badge>On Sale</Badge>
-                      </Group>
-                      <Text size="sm" c="dimmed" lineClamp={2}>
-                        {product.description}
-                      </Text>
-                      <Button fullWidth radius="md">
-                        Click
-                      </Button>
-                    </Stack>
+                    <Group justify="space-between" mt={"md"}>
+                      <Skeleton height={20} width={"70%"} radius="sm" />
+                      <Skeleton height={20} width={"20%"} radius="xl" />
+                    </Group>
+                    <Skeleton height={15} radius="xs" mt={"xl"} />
+                    <Skeleton height={15} width={"80%"} radius="xs" mt={"xs"} />
+                    <Skeleton height={35} radius="xs" mt={"md"} />
                   </Card>
                 </Grid.Col>
-              ))}
+              ),
+            )}
         </Grid>
+        {!loading && data?.total - skip - 1 == 0 && (
+          <Divider mt="md" label={"No more Products"} labelPosition="center" />
+        )}
       </ScrollArea>
     </>
   );
