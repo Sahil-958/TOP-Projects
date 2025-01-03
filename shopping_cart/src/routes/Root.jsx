@@ -72,7 +72,7 @@ function Root() {
               <ColorInput
                 variant="filled"
                 disallowInput
-                onChangeEnd={updateAccentColor}
+                onChange={updateAccentColor}
                 defaultValue={accentColor}
                 format="rgba"
               />
