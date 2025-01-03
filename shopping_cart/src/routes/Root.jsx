@@ -3,12 +3,11 @@ import { useState, useEffect } from "react";
 import { generateColors } from "@mantine/colors-generator";
 import {
   MantineProvider,
-  ColorPicker,
-  Popover,
-  ActionIcon,
-  Select,
+  ColorInput,
   Space,
+  Paper,
   useMantineColorScheme,
+  useMantineTheme,
   AppShell,
   Burger,
   Group,
@@ -17,6 +16,8 @@ import {
   Title,
   Stack,
   Autocomplete,
+  SegmentedControl,
+  Center,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IoMdColorPalette } from "react-icons/io";
@@ -67,23 +68,17 @@ function Root() {
             </Group>
           </AppShell.Header>
           <AppShell.Navbar p="md">
-            <Popover width={300} position="bottom" withArrow shadow="md">
-              <Popover.Target>
-                <ActionIcon>
-                  <IoMdColorPalette />
-                </ActionIcon>
-              </Popover.Target>
-              <Popover.Dropdown>
-                <ColorPicker
-                  format="rgba"
-                  fullWidth
-                  value={accentColor}
-                  onChange={updateAccentColor}
-                />
-                <Space h="xs" />
-                <ThemeToggle />
-              </Popover.Dropdown>
-            </Popover>
+            <Paper p="md" withBorder shadow="xl" radius="md">
+              <ColorInput
+                variant="filled"
+                disallowInput
+                onChangeEnd={updateAccentColor}
+                defaultValue={accentColor}
+                format="rgba"
+              />
+              <Space h="xs" />
+              <ThemeToggle />
+            </Paper>
           </AppShell.Navbar>
           <AppShell.Main>
             <Outlet />
@@ -230,30 +225,49 @@ function Search() {
 }
 
 function ThemeToggle() {
+  const theme = useMantineTheme();
   const { colorScheme, setColorScheme } = useMantineColorScheme({
     keepTransitions: true,
   });
-  const getIcon = (scheme) => {
-    switch (scheme) {
-      case "auto":
-        return <FaAdjust />;
-      case "dark":
-        return <FaMoon />;
-      case "light":
-        return <FaSun />;
-      default:
-        return <FaAdjust />;
-    }
-  };
+
   return (
-    <Select
-      leftSection={getIcon(colorScheme)}
-      leftSectionPointerEvents="none"
+    <SegmentedControl
+      fullWidth
       defaultValue={colorScheme}
-      data={["auto", "dark", "light"]}
+      color={theme.primaryColor}
       onChange={(val) => {
-        if (val) setColorScheme(val);
+        val && setColorScheme(val);
       }}
+      data={[
+        {
+          value: "light",
+          label: (
+            <Center style={{ gap: 10 }}>
+              <FaSun />
+              <span>Light</span>
+            </Center>
+          ),
+        },
+        {
+          value: "auto",
+          label: (
+            <Center style={{ gap: 10 }}>
+              {/* <IconCode style={{ width: rem(16), height: rem(16) }} /> */}
+              <FaAdjust />
+              <span>Auto</span>
+            </Center>
+          ),
+        },
+        {
+          value: "dark",
+          label: (
+            <Center style={{ gap: 10 }}>
+              <FaMoon />
+              <span>Dark</span>
+            </Center>
+          ),
+        },
+      ]}
     />
   );
 }
