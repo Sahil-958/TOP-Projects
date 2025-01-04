@@ -16,9 +16,12 @@ import {
   ScrollArea,
   Divider,
   Loader,
+  ActionIcon,
+  ActionIconGroup,
   useMantineTheme,
 } from "@mantine/core";
-
+import { LuStar } from "react-icons/lu";
+import { MdAddShoppingCart } from "react-icons/md";
 const SearchPage = () => {
   const theme = useMantineTheme();
   const navigate = useNavigate();
@@ -28,7 +31,7 @@ const SearchPage = () => {
   let delay = Number(searchParams.get("delay")) || 5000;
   let skip = Number(searchParams.get("skip")) || 0;
   let url = `https://dummyjson.com/products/search?q=${query}&limit=${limit}&skip=${skip}&delay=${delay}`;
-  let { data, error, loading } = useFetchProducts(url);
+  let { data, error, loading } = useFetchProducts(url, true);
   const [productsMap, setProductsMap] = useState(new Map());
   useEffect(() => {
     productsMap.clear();
@@ -65,6 +68,7 @@ const SearchPage = () => {
   return (
     <>
       <ScrollArea
+        offsetScrollbars="y"
         p={"md"}
         styles={{
           root: {
@@ -102,11 +106,12 @@ const SearchPage = () => {
           </Text>
           labelPosition="center"
         />
-        <Grid>
+        <Grid grow>
           {products?.map((product) => (
             <Grid.Col span={{ base: 12, md: 6, lg: 3 }} key={product.id}>
               <Card
-                h={400}
+                h={"100%"}
+                miw={250}
                 shadow="sm"
                 padding="lg"
                 radius="md"
@@ -117,18 +122,54 @@ const SearchPage = () => {
                   <ProductImage src={product.images[0]} title={product.title} />
                 </Card.Section>
                 <Stack h={"100%"} justify="end" gap={"sm"}>
-                  <Group justify="space-between" mt="md" mb="xs">
-                    <Title size="md" textWrap="wrap" lineClamp={1}>
-                      {product.title}
-                    </Title>
-                    <Badge>On Sale</Badge>
-                  </Group>
+                  <div>
+                    <Group gap={0}>
+                      <Text size="xs" c="dimmed" lineClamp={2}>
+                        {product.brand}
+                      </Text>
+                      <Badge leftSection={<LuStar />} variant="transparent">
+                        {product.rating}
+                      </Badge>
+                    </Group>
+                    <Group justify="space-between" mb="xs">
+                      <Title
+                        size="lg"
+                        textWrap="wrap"
+                        maw={"60%"}
+                        lineClamp={1}
+                      >
+                        {product.title}
+                      </Title>
+                      <Badge size="lg" variant="light">
+                        {product.price}
+                      </Badge>
+                    </Group>
+                  </div>
                   <Text size="sm" c="dimmed" lineClamp={2}>
                     {product.description}
                   </Text>
-                  <Button fullWidth radius="md">
-                    Click
-                  </Button>
+                  <Group wrap="nowrap">
+                    <ActionIcon.Group>
+                      <ActionIcon.GroupSection
+                        variant="default"
+                        size="lg"
+                        radius="md"
+                      >
+                        {0}
+                      </ActionIcon.GroupSection>
+                      <ActionIcon
+                        variant="light"
+                        size="lg"
+                        radius="md"
+                        //onClick={increment}
+                      >
+                        <MdAddShoppingCart />
+                      </ActionIcon>
+                    </ActionIcon.Group>
+                    <Button variant="light" fullWidth radius="md">
+                      Buy
+                    </Button>
+                  </Group>
                 </Stack>
               </Card>
             </Grid.Col>
@@ -140,8 +181,9 @@ const SearchPage = () => {
               (_, i) => (
                 <Grid.Col span={{ base: 12, md: 6, lg: 3 }} key={i}>
                   <Card
-                    //h={"100%"}
-                    h={400}
+                    h={"100%"}
+                    miw={250}
+                    maw={550}
                     shadow="sm"
                     padding="lg"
                     radius="md"
@@ -174,7 +216,7 @@ const SearchPage = () => {
 const ProductImage = ({ src, title }) => {
   const [loading, setLoading] = useState(true);
   return (
-    <Skeleton visible={loading}>
+    <Skeleton visible={loading} p={"md"}>
       <Image
         onLoad={() => setLoading(false)}
         src={src}
