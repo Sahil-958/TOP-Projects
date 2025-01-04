@@ -17,7 +17,6 @@ import {
   Divider,
   Loader,
   ActionIcon,
-  ActionIconGroup,
   useMantineTheme,
 } from "@mantine/core";
 import { LuStar } from "react-icons/lu";
@@ -183,7 +182,6 @@ const SearchPage = () => {
                   <Card
                     h={"100%"}
                     miw={250}
-                    maw={550}
                     shadow="sm"
                     padding="lg"
                     radius="md"
