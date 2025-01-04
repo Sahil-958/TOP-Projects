@@ -14,7 +14,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { SiFdroid } from "react-icons/si";
-import { FaAdjust } from "react-icons/fa";
+import { TbCategory } from "react-icons/tb";
 import "@mantine/core/styles.css";
 import Search from "../components/Search.jsx";
 import ThemeSwitcher from "../components/ThemeSwitcher.jsx";
@@ -110,7 +110,7 @@ function Categories() {
       href="#"
       key="categories"
       label="Categories"
-      leftSection={<FaAdjust />}
+      leftSection={<TbCategory />}
       childrenOffset={28}
     >
       {categories.map((category) => (
