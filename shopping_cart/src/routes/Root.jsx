@@ -20,16 +20,13 @@ import {
   Center,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IoMdColorPalette } from "react-icons/io";
 import { SiFdroid } from "react-icons/si";
 import { FaSun, FaMoon, FaAdjust, FaSearch } from "react-icons/fa";
 import "@mantine/core/styles.css";
 
 function Root() {
   let color = window.localStorage.getItem("accentColor");
-  const [accentColor, setAccentColor] = useState(
-    color || "rgba(47, 119, 150, 0.7)",
-  );
+  const [accentColor, setAccentColor] = useState(color || "#397e9eff");
   function updateAccentColor(color) {
     setAccentColor(color);
     //also updaate in local storage
@@ -74,7 +71,7 @@ function Root() {
                 disallowInput
                 onChange={updateAccentColor}
                 defaultValue={accentColor}
-                format="rgba"
+                format="hexa"
               />
               <Space h="xs" />
               <ThemeToggle />
