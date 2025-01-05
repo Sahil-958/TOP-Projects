@@ -43,7 +43,7 @@ export default function ProductCard({ product }) {
             <Text size="xs" c="dimmed" lineClamp={2}>
               {product.brand}
             </Text>
-            <Badge leftSection={<LuStar />} variant="transparent">
+            <Badge leftSection={<LuStar />} pl={product.brand || 0} variant="transparent">
               {product.rating}
             </Badge>
           </Group>
@@ -68,7 +68,7 @@ export default function ProductCard({ product }) {
               variant="light"
               size="lg"
               radius="md"
-              //onClick={increment}
+            //onClick={increment}
             >
               <MdAddShoppingCart />
             </ActionIcon>
