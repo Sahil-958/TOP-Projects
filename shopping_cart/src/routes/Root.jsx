@@ -29,6 +29,7 @@ function Root() {
   return (
     <>
       <MantineProvider
+        defaultColorScheme="auto"
         theme={{
           primaryColor: "custom",
           colors: { custom: generateColors(accentColor) },
@@ -58,7 +59,7 @@ function Root() {
             </Group>
           </AppShell.Header>
           <AppShell.Navbar >
-            <Paper p="md" withBorder shadow="xl" radius="md">
+            <Paper p="md" m={"sm"} withBorder shadow="xl" radius="md">
               <ColorInput
                 variant="filled"
                 disallowInput

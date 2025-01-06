@@ -8,7 +8,6 @@ import SkeletonProductCard from "../components/SkeletonProductCard.jsx";
 export default function InfiniteScroll({
   clearDeps = [],
   query,
-  skip = 0,
   data,
   loading,
   isEnd,
