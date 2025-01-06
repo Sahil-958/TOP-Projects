@@ -120,7 +120,7 @@ function Categories() {
             borderLeft: "2px solid var(--mantine-color-default-border)",
           }}
           onClick={() => {
-            navigate(`/search?q=${category}`);
+            navigate(`/categories/${category}`);
           }}
           href="#"
           label={<Text tt={"capitalize"}>{category}</Text>}
