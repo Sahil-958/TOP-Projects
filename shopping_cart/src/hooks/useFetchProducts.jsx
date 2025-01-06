@@ -610,15 +610,9 @@ let ldata = {
 };
 
 const useFetchProducts = ({
-  op,
-  url = null,
-  query = "",
-  limit = 10,
-  skip = 0,
-  delay = 2000,
+  url,
   localRequest = false,
 }) => {
-  const finalUrl = url || `https://dummyjson.com/products/${op}?q=${query}&limit=${limit}&skip=${skip}&delay=${delay}`;
   const [data, setData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -628,7 +622,7 @@ const useFetchProducts = ({
       setLoading(true);
       const fetchData = async () => {
         try {
-          const res = await fetch(finalUrl, { signal: controller.signal });
+          const res = await fetch(url, { signal: controller.signal });
           if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
           }
@@ -650,7 +644,7 @@ const useFetchProducts = ({
         setLoading(false);
       }, 2000);
     }
-  }, [finalUrl]);
+  }, [url]);
   return { data, error, loading };
 };
 
