@@ -1,8 +1,8 @@
 import { useParams, useSearchParams } from "react-router";
-import { useFetchProducts } from "../hooks/useFetchProducts";
+import { useFetchProducts } from "../hooks/useFetchProducts.jsx";
 import InfiniteScroll from "../components/InfiniteScroll.jsx";
 
-export default function Categories() {
+export default function CategoriesPage() {
   let { category } = useParams();
   let [searchParams] = useSearchParams();
   let limit = Number(searchParams.get("limit")) || 10;

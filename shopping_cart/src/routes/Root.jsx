@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router";
+import { Outlet } from "react-router";
 import { useState } from "react";
 import { generateColors } from "@mantine/colors-generator";
 import {
@@ -9,15 +9,13 @@ import {
   AppShell,
   Burger,
   Group,
-  Text,
-  NavLink,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { SiFdroid } from "react-icons/si";
-import { TbCategory } from "react-icons/tb";
 import "@mantine/core/styles.css";
 import Search from "../components/Search.jsx";
 import ThemeSwitcher from "../components/ThemeSwitcher.jsx";
+import CategoriesButton from "../components/CategoriesButton.jsx";
 
 function Root() {
   let color = window.localStorage.getItem("accentColor");
@@ -72,7 +70,7 @@ function Root() {
               <ThemeSwitcher />
             </Paper>
             <Space h="xs" />
-            <Categories />
+            <CategoriesButton />
           </AppShell.Navbar>
           <AppShell.Main>
             <Outlet />
@@ -83,51 +81,6 @@ function Root() {
   );
 }
 
-function Categories() {
-  let navigate = useNavigate();
-  let categories = [
-    "beauty",
-    "fragrances",
-    "furniture",
-    "groceries",
-    "home-decoration",
-    "kitchen-accessories",
-    "laptops",
-    "mens-shirts",
-    "mens-shoes",
-    "mens-watches",
-    "mobile-accessories",
-    "womens-dresses",
-    "womens-jewellery",
-    "womens-shoes",
-    "womens-watches",
-  ];
 
-  return (
-    <NavLink
-      variant="light"
-      active={true}
-      href="#"
-      key="categories"
-      label="Categories"
-      leftSection={<TbCategory />}
-      childrenOffset={28}
-    >
-      {categories.map((category) => (
-        <NavLink
-          key={category}
-          style={{
-            borderLeft: "2px solid var(--mantine-color-default-border)",
-          }}
-          onClick={() => {
-            navigate(`/categories/${category}`);
-          }}
-          href="#"
-          label={<Text tt={"capitalize"}>{category}</Text>}
-        ></NavLink>
-      ))}
-    </NavLink>
-  );
-}
 
 export default Root;

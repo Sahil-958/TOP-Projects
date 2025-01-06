@@ -613,7 +613,7 @@ const useFetchProducts = ({
   url,
   localRequest = false,
 }) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
