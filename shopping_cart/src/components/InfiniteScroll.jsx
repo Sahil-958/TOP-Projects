@@ -14,7 +14,6 @@ export default function InfiniteScroll({
   nextPageUrlGenerator,
   error,
 }) {
-  let total = data?.total || 10;
   const [productsMap, setProductsMap] = useState(new Map());
 
   useEffect(() => {
@@ -68,7 +67,7 @@ export default function InfiniteScroll({
             span
             c="var(--mantine-primary-color-filled)"
           >
-            {!loading && total}
+            {!loading && data?.total}
           </Text>
           {loading ? (
             <Loader
@@ -98,7 +97,7 @@ export default function InfiniteScroll({
         ))}
         {loading &&
           Array.from(
-            { length: total > 10 ? 10 : total || 10 },
+            { length: data?.total > 10 ? 10 : data?.total || 10 },
             (_, i) => (
               <Grid.Col span={{ base: 12, md: 6, lg: 3 }} key={i}>
                 <SkeletonProductCard key={i} />
@@ -106,7 +105,7 @@ export default function InfiniteScroll({
             ),
           )}
       </Grid>
-      {!loading && total - skip - 1 == 0 && (
+      {!loading && data?.total - skip - 1 == 0 && (
         <Divider mt="md" label={"No more Products"} labelPosition="center" />
       )}
     </ScrollArea>)

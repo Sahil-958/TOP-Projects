@@ -19,7 +19,7 @@ export default function ProductCard({ product }) {
   return (
     <Card
       h={"100%"}
-      miw={250}
+      miw={300}
       shadow="sm"
       padding="lg"
       radius="md"

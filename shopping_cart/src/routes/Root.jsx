@@ -57,7 +57,7 @@ function Root() {
               <Search />
             </Group>
           </AppShell.Header>
-          <AppShell.Navbar p="md">
+          <AppShell.Navbar >
             <Paper p="md" withBorder shadow="xl" radius="md">
               <ColorInput
                 variant="filled"
