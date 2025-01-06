@@ -21,7 +21,7 @@ const SearchPage = () => {
 
   return (
     <>
-      <InfiniteScroll nextPageUrlGenerator={nextPageUrl} error={error} query={query} clearDeps={[query]} data={data} loading={loading} />
+      <InfiniteScroll isEnd={data?.total - skip == 1} nextPageUrlGenerator={nextPageUrl} error={error} query={query} clearDeps={[query]} data={data} loading={loading} />
     </>
   );
 };

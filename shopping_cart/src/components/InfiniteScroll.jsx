@@ -11,6 +11,7 @@ export default function InfiniteScroll({
   skip = 0,
   data,
   loading,
+  isEnd,
   nextPageUrlGenerator,
   error,
 }) {
@@ -105,8 +106,8 @@ export default function InfiniteScroll({
             ),
           )}
       </Grid>
-      {!loading && data?.total - skip - 1 == 0 && (
-        <Divider mt="md" label={"No more Products"} labelPosition="center" />
+      {!loading && isEnd && (
+        <Divider mt="md" mb={"md"} label={"No more Products"} labelPosition="center" />
       )}
     </ScrollArea>)
     ;
