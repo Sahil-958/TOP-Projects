@@ -11,11 +11,13 @@ import {
   Group,
   ActionIcon,
 } from "@mantine/core";
+import { useNavigate } from 'react-router';
 import { LuStar } from "react-icons/lu";
 import { MdAddShoppingCart } from "react-icons/md";
 
 export default function ProductCard({ product }) {
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
   return (
     <Card
       h={"100%"}
@@ -75,6 +77,10 @@ export default function ProductCard({ product }) {
           </ActionIcon.Group>
           <Button variant="light" fullWidth radius="md">
             Buy
+          </Button>
+          <Button onClick={() => navigate(`/product/${product.id}`)
+          } variant="light" fullWidth radius="md">
+            View
           </Button>
         </Group>
       </Stack>
