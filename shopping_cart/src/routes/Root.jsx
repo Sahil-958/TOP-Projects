@@ -9,6 +9,7 @@ import {
   AppShell,
   Burger,
   Group,
+  Slider,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { SiFdroid } from "react-icons/si";
@@ -20,6 +21,7 @@ import CategoriesButton from "../components/CategoriesButton.jsx";
 function Root() {
   let color = window.localStorage.getItem("accentColor");
   const [accentColor, setAccentColor] = useState(color || "#397e9eff");
+  const [primaryShade, setPrimaryShade] = useState(7);
   function updateAccentColor(color) {
     setAccentColor(color);
     //also updaate in local storage
@@ -32,6 +34,7 @@ function Root() {
         defaultColorScheme="auto"
         theme={{
           primaryColor: "custom",
+          primaryShade: primaryShade,
           colors: { custom: generateColors(accentColor) },
         }}
       >
@@ -60,6 +63,8 @@ function Root() {
           </AppShell.Header>
           <AppShell.Navbar >
             <Paper p="md" m={"sm"} withBorder shadow="xl" radius="md">
+              <Slider value={primaryShade} min={0} max={9} step={1} onChange={setPrimaryShade} />
+              <Space h="xs" />
               <ColorInput
                 variant="filled"
                 disallowInput
@@ -77,7 +82,7 @@ function Root() {
             <Outlet />
           </AppShell.Main>
         </AppShell>
-      </MantineProvider>
+      </MantineProvider >
     </>
   );
 }
