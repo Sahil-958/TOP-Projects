@@ -32,7 +32,7 @@ export default function ProductCard({ product }) {
         <Skeleton visible={loading} p={"md"}>
           <Image
             onLoad={() => setLoading(false)}
-            src={product.images[0]}
+            src={product.thumbnail}
             h={200}
             fit="contain"
             alt={product.title}
@@ -78,7 +78,7 @@ export default function ProductCard({ product }) {
           <Button variant="light" fullWidth radius="md">
             Buy
           </Button>
-          <Button onClick={() => navigate(`/product/${product.id}`)
+          <Button onClick={() => navigate(`/product/${product.id}`, { state: { product } })
           } variant="light" fullWidth radius="md">
             View
           </Button>
