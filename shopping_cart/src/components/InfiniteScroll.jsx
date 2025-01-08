@@ -4,7 +4,6 @@ import { Grid, Text, ScrollArea, Divider, Loader } from "@mantine/core";
 import ProductCard from "../components/ProductCard.jsx";
 import SkeletonProductCard from "../components/SkeletonProductCard.jsx";
 
-
 export default function InfiniteScroll({
   clearDeps = [],
   query,
@@ -41,10 +40,7 @@ export default function InfiniteScroll({
   const fetchNextPage = () => {
     if (loading) return;
     console.log("fetch next page");
-    navigate(
-      nextPageUrlGenerator(),
-      { replace: true },
-    );
+    navigate(nextPageUrlGenerator(), { replace: true });
   };
   return (
     <ScrollArea
@@ -70,10 +66,7 @@ export default function InfiniteScroll({
             {!loading && data?.total}
           </Text>
           {loading ? (
-            <Loader
-              color={"var(--mantine-primary-color-filled)"}
-              type="dots"
-            />
+            <Loader color={"var(--mantine-primary-color-filled)"} type="dots" />
           ) : (
             ` Products found for Term: `
           )}
@@ -106,10 +99,13 @@ export default function InfiniteScroll({
           )}
       </Grid>
       {!loading && isEnd && (
-        <Divider mt="md" mb={"md"} label={"No more Products"} labelPosition="center" />
+        <Divider
+          mt="md"
+          mb={"md"}
+          label={"No more Products"}
+          labelPosition="center"
+        />
       )}
-    </ScrollArea>)
-    ;
+    </ScrollArea>
+  );
 }
-
-

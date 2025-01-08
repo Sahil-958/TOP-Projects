@@ -11,7 +11,7 @@ import {
   Group,
   ActionIcon,
 } from "@mantine/core";
-import { useNavigate } from 'react-router';
+import { useNavigate } from "react-router";
 import { LuStar } from "react-icons/lu";
 import { MdAddShoppingCart } from "react-icons/md";
 
@@ -45,7 +45,11 @@ export default function ProductCard({ product }) {
             <Text size="xs" c="dimmed" lineClamp={2}>
               {product.brand}
             </Text>
-            <Badge leftSection={<LuStar />} pl={product.brand || 0} variant="transparent">
+            <Badge
+              leftSection={<LuStar />}
+              pl={product.brand || 0}
+              variant="transparent"
+            >
               {product.rating}
             </Badge>
           </Group>
@@ -70,7 +74,7 @@ export default function ProductCard({ product }) {
               variant="light"
               size="lg"
               radius="md"
-            //onClick={increment}
+              //onClick={increment}
             >
               <MdAddShoppingCart />
             </ActionIcon>
@@ -78,8 +82,14 @@ export default function ProductCard({ product }) {
           <Button variant="light" fullWidth radius="md">
             Buy
           </Button>
-          <Button onClick={() => navigate(`/product/${product.id}`, { state: { product } })
-          } variant="light" fullWidth radius="md">
+          <Button
+            onClick={() =>
+              navigate(`/product/${product.id}`, { state: { product } })
+            }
+            variant="light"
+            fullWidth
+            radius="md"
+          >
             View
           </Button>
         </Group>

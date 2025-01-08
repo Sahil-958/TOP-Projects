@@ -17,10 +17,16 @@ import {
   Skeleton,
   Spoiler,
 } from "@mantine/core";
-import { Carousel } from '@mantine/carousel';
-import Autoplay from 'embla-carousel-autoplay';
+import { Carousel } from "@mantine/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { LuStar, LuPackagePlus } from "react-icons/lu";
-import { TbTruckReturn, TbShieldCheck, TbWeight, TbPackage, TbCategory } from "react-icons/tb";
+import {
+  TbTruckReturn,
+  TbShieldCheck,
+  TbWeight,
+  TbPackage,
+  TbCategory,
+} from "react-icons/tb";
 import { RxDimensions } from "react-icons/rx";
 import { MdAddShoppingCart } from "react-icons/md";
 import { LiaShippingFastSolid, LiaBoxesSolid } from "react-icons/lia";
@@ -40,36 +46,37 @@ export default function ProductPage() {
   } else {
     console.log("Fetching product from API");
     ({ data, loading, error } = useFetchProducts({
-      url: `https://dummyjson.com/products/${id}?delay=5000`
-    }
-    ))
+      url: `https://dummyjson.com/products/${id}?delay=5000`,
+    }));
     product = data;
   }
 
   if (loading) {
-    return (<>
-      <ScrollArea
-        offsetScrollbars="y"
-        pr={10}
-        styles={{
-          root: {
-            height: "calc(100vh - var(--app-shell-header-height))",
-          },
-        }}
-      >
-        <Stack>
-          <Skeleton height={400} />
-          <Divider />
-          <Skeleton height={150} />
-          <Divider />
-          <Skeleton height={180} />
-          <Skeleton height={180} />
-          <Skeleton height={180} />
-          <Divider mb="lg" label={"End of Reviews"} />
-        </Stack>
-      </ScrollArea>
-    </>);
-  };
+    return (
+      <>
+        <ScrollArea
+          offsetScrollbars="y"
+          pr={10}
+          styles={{
+            root: {
+              height: "calc(100vh - var(--app-shell-header-height))",
+            },
+          }}
+        >
+          <Stack>
+            <Skeleton height={400} />
+            <Divider />
+            <Skeleton height={150} />
+            <Divider />
+            <Skeleton height={180} />
+            <Skeleton height={180} />
+            <Skeleton height={180} />
+            <Divider mb="lg" label={"End of Reviews"} />
+          </Stack>
+        </ScrollArea>
+      </>
+    );
+  }
 
   return (
     <ScrollArea
@@ -82,6 +89,6 @@ export default function ProductPage() {
       }}
     >
       <ProductDetailed product={product} key={id} />
-    </ScrollArea >
+    </ScrollArea>
   );
 }

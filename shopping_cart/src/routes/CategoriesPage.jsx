@@ -19,8 +19,15 @@ export default function CategoriesPage() {
 
   return (
     <>
-      <InfiniteScroll isEnd={data?.total - skip == 1} nextPageUrlGenerator={nextPageUrl} error={error} query={category} clearDeps={[category]} data={data} loading={loading} />
+      <InfiniteScroll
+        isEnd={data?.total - skip == 1}
+        nextPageUrlGenerator={nextPageUrl}
+        error={error}
+        query={category}
+        clearDeps={[category]}
+        data={data}
+        loading={loading}
+      />
     </>
   );
-};
-
+}

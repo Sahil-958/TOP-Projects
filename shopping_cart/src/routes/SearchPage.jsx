@@ -16,12 +16,19 @@ const SearchPage = () => {
   function nextPageUrl() {
     let nextSkip = Math.min(skip + limit, data?.total - 1);
     return `/search?q=${query}&limit=${limit}&skip=${nextSkip}&delay=${delay}`;
-  };
-
+  }
 
   return (
     <>
-      <InfiniteScroll isEnd={data?.total - skip == 1} nextPageUrlGenerator={nextPageUrl} error={error} query={query} clearDeps={[query]} data={data} loading={loading} />
+      <InfiniteScroll
+        isEnd={data?.total - skip == 1}
+        nextPageUrlGenerator={nextPageUrl}
+        error={error}
+        query={query}
+        clearDeps={[query]}
+        data={data}
+        loading={loading}
+      />
     </>
   );
 };

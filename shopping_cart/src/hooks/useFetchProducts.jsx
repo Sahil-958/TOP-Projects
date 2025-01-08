@@ -609,10 +609,7 @@ let ldata = {
   limit: 10,
 };
 
-const useFetchProducts = ({
-  url,
-  localRequest = false,
-}) => {
+const useFetchProducts = ({ url, localRequest = false }) => {
   const [data, setData] = useState();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);

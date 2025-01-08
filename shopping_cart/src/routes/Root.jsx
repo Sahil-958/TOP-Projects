@@ -61,9 +61,15 @@ function Root() {
               <Search />
             </Group>
           </AppShell.Header>
-          <AppShell.Navbar >
+          <AppShell.Navbar>
             <Paper p="md" m={"sm"} withBorder shadow="xl" radius="md">
-              <Slider value={primaryShade} min={0} max={9} step={1} onChange={setPrimaryShade} />
+              <Slider
+                value={primaryShade}
+                min={0}
+                max={9}
+                step={1}
+                onChange={setPrimaryShade}
+              />
               <Space h="xs" />
               <ColorInput
                 variant="filled"
@@ -82,11 +88,9 @@ function Root() {
             <Outlet />
           </AppShell.Main>
         </AppShell>
-      </MantineProvider >
+      </MantineProvider>
     </>
   );
 }
-
-
 
 export default Root;
