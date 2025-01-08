@@ -84,7 +84,7 @@ export default function Search() {
       <>
         <Group w={"100%"} gap={5} wrap="nowrap">
           <Skeleton height={70} width={60} radius="sm" visible={isLoading}>
-            <Avatar src={product?.images[0]} size={56} radius="xl" />
+            <Avatar src={product?.thumbnail} size={56} radius="xl" />
           </Skeleton>
           <Stack gap={5} w={"100%"}>
             <Skeleton height={20} radius="sm" visible={isLoading}>
