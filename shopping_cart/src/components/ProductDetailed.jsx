@@ -12,6 +12,7 @@ import {
   Group,
   Grid,
   Flex,
+  Paper,
   ThemeIcon,
   ActionIcon,
   ScrollArea,
@@ -57,22 +58,27 @@ export default function ProductDetailed({ product }) {
 
   return (
     <Stack  >
-      <Carousel h={300} withIndicators loop slideSize={"70%"} slideGap={10}
+      <Carousel h={300} loop slideSize={"70%"} slideGap={10}
         speed={3}
         plugins={[autoplay.current]}
         onMouseEnter={autoplay.current.stop}
         onMouseLeave={autoplay.current.reset}
+        styles={{
+          control: {
+            backgroundColor: "var(--mantine-primary-color-light)",
+            color: "var(--mantine-primary-color-light-color)",
+          }
+        }}
       >
         {product.images.map((url, index) => (
-          <Carousel.Slide key={url + index} >
+          <Carousel.Slide key={url + index}  >
             <Skeleton visible={!loadedImages.has(url)} h={300}>
-              <Image radius={"md"} src={url} h={300} fit="contain" onLoad={() => {
-                setLoadedImages((prev) => new Set(prev).add(url));
-              }}
-                styles={{
-                  backgroudColor: "red"
+              <Paper withBorder shadow="md" radius={"md"} p={0} h={"100%"}>
+                <Image radius={"md"} src={url} h={300} fit="contain" onLoad={() => {
+                  setLoadedImages((prev) => new Set(prev).add(url));
                 }}
-                alt={product.title} />
+                  alt={product.title} />
+              </Paper>
             </Skeleton>
           </Carousel.Slide>
         ))
