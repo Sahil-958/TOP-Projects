@@ -104,7 +104,7 @@ export default function Search() {
   }
 
   function handleOptionSubmit(option) {
-    navigate(`/search?q=${option}`);
+    navigate(`search?q=${option}`);
   }
 
   return (

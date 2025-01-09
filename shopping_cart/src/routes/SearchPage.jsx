@@ -15,7 +15,7 @@ const SearchPage = () => {
 
   function nextPageUrl() {
     let nextSkip = Math.min(skip + limit, data?.total - 1);
-    return `/search?q=${query}&limit=${limit}&skip=${nextSkip}&delay=${delay}`;
+    return `?q=${query}&limit=${limit}&skip=${nextSkip}&delay=${delay}`;
   }
 
   return (
