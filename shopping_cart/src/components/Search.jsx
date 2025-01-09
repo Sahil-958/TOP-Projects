@@ -139,7 +139,7 @@ export default function Search() {
         renderOption={getSerachTermSuggestionCard}
         leftSectionPointerEvents="none"
         leftSection={<FaSearch />}
-        placeholder="App search"
+        placeholder="Search"
       />
     </>
   );

@@ -15,7 +15,6 @@ import {
   NavLink,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { SiFdroid } from "react-icons/si";
 import { GoHome } from "react-icons/go";
 import "@mantine/core/styles.css";
 import Search from "./components/Search.jsx";
@@ -25,7 +24,6 @@ import CategoriesButton from "./components/CategoriesButton.jsx";
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location.pathname);
   let color = window.localStorage.getItem("accentColor");
   const [accentColor, setAccentColor] = useState(color || "#397e9eff");
   const [primaryShade, setPrimaryShade] = useState(7);
@@ -63,7 +61,6 @@ function App() {
                   hiddenFrom="sm"
                   size="sm"
                 />
-                <SiFdroid size={20} />
               </Group>
               <Search />
             </Group>
