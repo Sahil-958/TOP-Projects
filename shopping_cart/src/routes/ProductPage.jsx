@@ -1,40 +1,8 @@
-import {
-  Stack,
-  Divider,
-  Card,
-  Avatar,
-  Image,
-  Text,
-  Title,
-  Badge,
-  Button,
-  Group,
-  Grid,
-  Flex,
-  ThemeIcon,
-  ActionIcon,
-  ScrollArea,
-  Skeleton,
-  Spoiler,
-} from "@mantine/core";
-import { Carousel } from "@mantine/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { LuStar, LuPackagePlus } from "react-icons/lu";
-import {
-  TbTruckReturn,
-  TbShieldCheck,
-  TbWeight,
-  TbPackage,
-  TbCategory,
-} from "react-icons/tb";
-import { RxDimensions } from "react-icons/rx";
-import { MdAddShoppingCart } from "react-icons/md";
-import { LiaShippingFastSolid, LiaBoxesSolid } from "react-icons/lia";
+import { Stack, Divider, ScrollArea, Skeleton } from "@mantine/core";
 import { useParams, useLocation } from "react-router";
-import { useRef } from "react";
-import { formatDistanceToNow } from "date-fns";
 import { useFetchProducts } from "../hooks/useFetchProducts";
 import ProductDetailed from "../components/ProductDetailed.jsx";
+
 export default function ProductPage() {
   let { id } = useParams();
   const location = useLocation();
