@@ -14,7 +14,7 @@ export default function CategoriesPage() {
 
   function nextPageUrl() {
     let nextSkip = Math.min(skip + limit, data?.total - 1);
-    return `/categories/${category}?limit=${limit}&skip=${nextSkip}&delay=${delay}`;
+    return `?limit=${limit}&skip=${nextSkip}&delay=${delay}`;
   }
 
   return (
