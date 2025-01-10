@@ -13,9 +13,11 @@ import {
   Group,
   Slider,
   NavLink,
+  Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { GoHome } from "react-icons/go";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 import "@mantine/core/styles.css";
 import Search from "./components/Search.jsx";
 import ThemeSwitcher from "./components/ThemeSwitcher.jsx";
@@ -61,6 +63,10 @@ function App() {
                   hiddenFrom="sm"
                   size="sm"
                 />
+                <Group align="center" spacing="xs" visibleFrom="xs">
+                  <HiOutlineShoppingBag size={30} />
+                  <Title order={3}>Shopper</Title>
+                </Group>
               </Group>
               <Search />
             </Group>
@@ -88,8 +94,8 @@ function App() {
             <Space h="xs" />
             <NavLink
               variant="light"
-              active={location.pathname === "/app"}
-              href="#app"
+              active={location.pathname === "/app/home"}
+              href="#/app/home"
               key="home"
               label="Home"
               leftSection={<GoHome />}
