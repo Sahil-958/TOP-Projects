@@ -7,6 +7,7 @@ import SkeletonProductCard from "../components/SkeletonProductCard.jsx";
 export default function InfiniteScroll({
   clearDeps = [],
   query,
+  topDivider,
   data,
   loading,
   isEnd,
@@ -42,7 +43,7 @@ export default function InfiniteScroll({
   return (
     <ScrollArea
       offsetScrollbars="y"
-      p={"md"}
+      p={{ base: "xs" }}
       styles={{
         root: {
           height: "calc(100vh - var(--app-shell-header-height))",
@@ -50,35 +51,42 @@ export default function InfiniteScroll({
       }}
       onBottomReached={fetchNextPage}
     >
-      <Divider
-        mb="md"
-        label=<Text size="sm">
-          <Text
-            fw={700}
-            tt={"capitalize"}
-            size="md"
-            span
-            c="var(--mantine-primary-color-filled)"
-          >
-            {!loading && data?.total}
-          </Text>
-          {loading ? (
-            <Loader color={"var(--mantine-primary-color-filled)"} type="dots" />
-          ) : (
-            ` Products found for Term: `
-          )}
-          <Text
-            fw={700}
-            tt={"capitalize"}
-            size="md"
-            span
-            c="var(--mantine-primary-color-filled)"
-          >
-            {!loading && query}
-          </Text>
-        </Text>
-        labelPosition="center"
-      />
+      {(topDivider && topDivider()) || (
+        <Divider
+          mb="md"
+          label={
+            <Text size="sm">
+              <Text
+                fw={700}
+                tt={"capitalize"}
+                size="md"
+                span
+                c="var(--mantine-primary-color-filled)"
+              >
+                {!loading && data?.total}
+              </Text>
+              {loading ? (
+                <Loader
+                  color={"var(--mantine-primary-color-filled)"}
+                  type="dots"
+                />
+              ) : (
+                ` Products found for Term: `
+              )}
+              <Text
+                fw={700}
+                tt={"capitalize"}
+                size="md"
+                span
+                c="var(--mantine-primary-color-filled)"
+              >
+                {!loading && query}
+              </Text>
+            </Text>
+          }
+          labelPosition="center"
+        />
+      )}
       <Grid grow>
         {products?.map((product) => (
           <Grid.Col span={{ base: 12, md: 6, lg: 3 }} key={product.id}>
