@@ -15,6 +15,7 @@ export default function CategoriesButton() {
       variant="light"
       active={location.pathname.match(/categories\/\w+/)}
       href="#"
+      defaultOpened={true}
       key="categories"
       label="Categories"
       leftSection={<TbCategory />}
