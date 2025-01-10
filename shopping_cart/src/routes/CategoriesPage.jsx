@@ -6,7 +6,7 @@ export default function CategoriesPage() {
   let { category } = useParams();
   let [searchParams] = useSearchParams();
   let limit = Number(searchParams.get("limit")) || 10;
-  let delay = Number(searchParams.get("delay")) || 5000;
+  let delay = Number(searchParams.get("delay")) || 1000;
   let skip = Number(searchParams.get("skip")) || 0;
   let { data, error, loading } = useFetchProducts({
     url: `https://dummyjson.com/products/category/${category}?limit=${limit}&skip=${skip}&dealy=${delay}`,

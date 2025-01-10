@@ -17,7 +17,6 @@ export default function InfiniteScroll({
 
   useEffect(() => {
     productsMap.clear();
-    console.log("clear");
   }, clearDeps);
 
   useEffect(() => {
@@ -32,14 +31,12 @@ export default function InfiniteScroll({
         return newMap;
       });
     }
-    console.log("map");
   }, [data]);
   const products = Array.from(productsMap.values());
 
   const navigate = useNavigate();
   const fetchNextPage = () => {
     if (loading) return;
-    console.log("fetch next page");
     navigate(nextPageUrlGenerator(), { replace: true });
   };
   return (

@@ -42,7 +42,7 @@ export default function Search() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `https://dummyjson.com/products/search?q=${searchValue}&limit=5&delay=5000`,
+          `https://dummyjson.com/products/search?q=${searchValue}&limit=5`,
           { signal: controller.signal },
         );
         if (!res.ok) {
