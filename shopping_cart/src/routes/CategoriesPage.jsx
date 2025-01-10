@@ -1,6 +1,7 @@
 import { useParams, useSearchParams } from "react-router";
 import { useFetchProducts } from "../hooks/useFetchProducts.jsx";
 import InfiniteScroll from "../components/InfiniteScroll.jsx";
+import { Divider, Text, Loader } from "@mantine/core";
 
 export default function CategoriesPage() {
   let { category } = useParams();
@@ -16,12 +17,51 @@ export default function CategoriesPage() {
     let nextSkip = Math.min(skip + limit, data?.total - 1);
     return `?limit=${limit}&skip=${nextSkip}&delay=${delay}`;
   }
+  function topDivider() {
+    return (
+      <Divider
+        mb="md"
+        label={
+          <Text size="sm">
+            <Text
+              fw={700}
+              tt={"capitalize"}
+              size="md"
+              span
+              c="var(--mantine-primary-color-filled)"
+            >
+              {!loading && data?.total}
+            </Text>
+            {loading ? (
+              <Loader
+                color={"var(--mantine-primary-color-filled)"}
+                type="dots"
+              />
+            ) : (
+              ` Products found for Category: `
+            )}
+            <Text
+              fw={700}
+              tt={"capitalize"}
+              size="md"
+              span
+              c="var(--mantine-primary-color-filled)"
+            >
+              {!loading && category}
+            </Text>
+          </Text>
+        }
+        labelPosition="center"
+      />
+    );
+  }
 
   return (
     <>
       <InfiniteScroll
         isEnd={data?.total - skip == 1}
         nextPageUrlGenerator={nextPageUrl}
+        topDivider={topDivider}
         error={error}
         query={category}
         clearDeps={[category]}
