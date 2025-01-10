@@ -25,15 +25,12 @@ export default function CategoriesButton() {
           data?.map((category) => (
             <NavLink
               variant="subtle"
-              active={location.pathname === `/categories/${category}`}
+              active={location.pathname === `/app/categories/${category}`}
               key={category}
               style={{
                 borderLeft: "2px solid var(--mantine-color-default-border)",
               }}
-              onClick={() => {
-                navigate(`categories/${category}`);
-              }}
-              href="#"
+              href={`#/app/categories/${category}`}
               label={<Text tt={"capitalize"}>{category}</Text>}
             ></NavLink>
           ))}

@@ -5,11 +5,11 @@ import App from "./App.jsx";
 import SearchPage from "./routes/SearchPage.jsx";
 import CategoriesPage from "./routes/CategoriesPage.jsx";
 import ProdcutPage from "./routes/ProductPage.jsx";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { HashRouter, Routes, Route } from "react-router";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="app" element={<App />}>
           <Route path="search" element={<SearchPage />} />
@@ -17,6 +17,6 @@ createRoot(document.getElementById("root")).render(
           <Route path="product/:id" element={<ProdcutPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 );

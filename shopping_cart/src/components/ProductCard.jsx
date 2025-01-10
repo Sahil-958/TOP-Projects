@@ -84,7 +84,7 @@ export default function ProductCard({ product }) {
           </Button>
           <Button
             onClick={() =>
-              navigate(`product/${product.id}`, { state: { product } })
+              navigate(`/app/product/${product.id}`, { state: { product } })
             }
             variant="light"
             fullWidth

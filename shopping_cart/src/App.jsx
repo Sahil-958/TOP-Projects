@@ -89,7 +89,7 @@ function App() {
             <NavLink
               variant="light"
               active={location.pathname === "/app"}
-              href="#"
+              href="#app"
               key="home"
               label="Home"
               leftSection={<GoHome />}
