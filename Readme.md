@@ -6,6 +6,10 @@ Welcome to my repository for exercises and projects completed during my journey 
 
 Explore the following projects with their live demos:
 
+## Shopping Cart (ongoing)
+
+[Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/shopping_cart/dist/#/app)
+
 ## DashBoard
 
 A responsive project designed to reinforce my understanding of CSS Grid Layout. It features an aesthetic dual-color theme (dark and light) with smooth transitions.
@@ -14,19 +18,16 @@ A responsive project designed to reinforce my understanding of CSS Grid Layout. 
 
 ![DashBoard Desktop](assets/dashBoard.gif)
 
-
 ## Meca
 
-A react project designed to reinforce my understanding of React useEffect and useState hooks. 
+A react project designed to reinforce my understanding of React useEffect and useState hooks.
 [Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/meca/dist/)
-
 
 ## ToDo List
 
 A project designed to reinforce my understanding of local storage,modules and tailwind css.
 
 [Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/todo/dist/)
-
 
 ## Tic-Tac-Toe
 
@@ -48,7 +49,6 @@ A responsive project designed to reinforce my understanding of JS OOP concepts. 
 
 [Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/library/)
 
-
 ## Calcy
 
 Explore my custom-built calculator project with a sleek Nord-themed design. This calculator is fully functional with hardware keyboard support and offers a compact layout for a seamless user experience.
@@ -56,9 +56,8 @@ Explore my custom-built calculator project with a sleek Nord-themed design. This
 [Live Demo](https://sahil-958.github.io/The-Odin-Project-Learnings/calculator)
 
 | ![Calcy Desktop](assets/calcyDesktop.png) | ![Calcy](assets/calcy.png) |
-|:---------------------------------------:|:--------------------------:|
-|               Calcy Desktop              |           Calcy            |
-
+| :---------------------------------------: | :------------------------: |
+|               Calcy Desktop               |           Calcy            |
 
 ## SignUP 4 Fun
 
@@ -93,6 +92,4 @@ I want to express my sincere appreciation to the fantastic artists who have gene
 
 I also want to acknowledge the talented artists who have contributed to previous projects. Although I don't have specific links to their work due to a belated addition of this section, their creative input has been invaluable and greatly appreciated.
 
-
 - Created with ❤️ by SAWHILL
-
